@@ -1,0 +1,163 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+   font-size: x-large;
+   height: 100vh;
+   width: 100vw;
+}
+header{
+    font-size: x-large;
+    height: 10vh;
+}
+main{
+    height: 85vh;
+    color: white;
+}
+footer {
+     color: white;
+     margin-left: 45%;
+     height: 5vh;
+}
+.about-us{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    margin-left: 35%;
+    margin-right: 5%;
+    padding: 10px;
+    width: 40vw;
+    margin-left: 5%;
+    height: 76vh;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+.h1-about-us{
+   margin-left: 38.5%;
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    height: 76vh;
+    width: 40vw;
+}
+.h1-social{
+    margin-left: 25%;
+}
+.social-media-div{
+height: 21.947vh;
+width: 13.5vw;
+}
+.social{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 15%;
+    margin-bottom: 3%;
+
+}
+.first-column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.second-column{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+#instagram{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://icones.pro/wp-content/uploads/2021/02/instagram-logo-icone4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#facebook{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://store-images.s-microsoft.com/image/apps.37935.9007199266245907.b029bd80-381a-4869-854f-bac6f359c5c9.91f8693c-c75b-4050-a796-63e1314d18c9?h=464);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#telegram{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://store-images.s-microsoft.com/image/apps.55245.13537716651231321.3067a421-6c2f-48a9-b77c-1e38e19146e6.10e2aa49-52ca-4e79-9a61-b6422978afb9);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#github{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#youtube{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://static-00.iconduck.com/assets.00/youtube-icon-1024x1024-t3zo1lo4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#linkedIn{
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0)) , url(https://img.freepik.com/premium-vector/linkedin-logo_578229-227.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+#back-to-home{
+    margin-top: 15vh;
+    margin-left: 9.5vw;
+}
+h2{
+    margin-left: 40%;
+}
+.social-media-div{
+    cursor: pointer;
+}
+
+#report-bug{ 
+    font-size: x-large;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 14vw;
+}
+
+@media (min-width: 992px) {
+    #back-to-home{
+        display: none;
+    }
+   
+   
+}
+@media (max-width: 992px) {
+   body{
+    font-size:x-small;
+   }
+   .social-media-div{
+    height: 15vh;
+    width: 13.5vw;
+    }
+    .h1-about-us{
+        margin-left: 25.5%;
+     }
+     #report-bug{ 
+        margin-left: 9.5vw;
+        font-size: medium;
+        padding: 10px;
+        margin-top: 7vh;
+        
+    }
+    #back-to-home{
+        margin-top: 8vh;
+        margin-left: 9.5vw;
+    }
+    
+     
+  
+ 
+}
+

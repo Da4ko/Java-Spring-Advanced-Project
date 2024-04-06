@@ -1,0 +1,60 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+   font-size: x-large;
+   height: 100vh;
+   width: 100vw;
+}
+
+header{
+    font-size: x-large;
+    height: 20vh;
+}
+
+main{
+    height: 75vh;
+    
+}
+
+footer {
+    color: white;
+    margin-left: 45%;
+    height: 5vh;
+ }
+
+ #select-problem{
+    width: 20vw;
+ }
+ #sbm-btn-btn{
+    margin-top: 5%;
+    margin-left: 35%;
+ }
+ #form-group-all{
+    padding: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+ }
+ @media (min-width: 992px) {
+    #back-to-home{
+         display: none;
+
+    }
+   
+}
+@media (max-width: 992px) {
+    #form-group-all{
+        width: 40vw;
+        padding: 20px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+     }
+    #back-to-home{
+        margin-top: 5%;
+        margin-left: 27%;
+    }
+    #sbm-btn-btn{
+        
+        margin-left: 23%;
+     }
+
+}

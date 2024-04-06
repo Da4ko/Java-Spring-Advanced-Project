@@ -1,0 +1,151 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+   font-size: x-large;
+   height: 100vh;
+   width: 100vw;
+}
+header{
+    font-size: x-large;
+    height: 10vh;
+}
+main{
+    height: 85vh;
+    color: white;
+}
+footer {
+     color: white;
+     margin-left: 45%;
+     height: 5vh;
+}
+
+#div1{
+    height: 32vh;
+    width: 37.5vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    float: left;
+    margin-left: 12.5vw;
+    border-right: solid 3px;
+    border-bottom: solid 3px;
+    border-color: wheat;
+}
+#div2{
+    height: 32vh;
+    width: 37.5vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    float: left;
+    border-left: solid 3px;
+    border-bottom: solid 3px;
+    border-color: wheat;
+    
+}
+#div3{
+    height: 32vh;
+    width: 37.5vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    float: left;
+    margin-left: 12.5vw;
+    border-right: solid 3px;
+    border-top: solid 3px;
+    border-color: wheat;
+
+}
+#div4{
+    height: 32vh;
+    width: 37.5vw;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5));
+    float: left;
+    border-left: solid 3px;
+    border-top: solid 3px;
+    border-color: wheat;
+}
+.welcome-text{
+    margin-left: 15%;
+}
+#add-porsche{
+    margin-top: 10%;
+    margin-left: 1%;
+}
+#add-mercedes{
+    margin-top: 5.5%;
+    margin-left: 1%;
+}
+#add-audi{
+   margin-top: 5.5%;
+   margin-left: 1%;
+}
+#add-bmw{
+   margin-top: 5.5%;
+   margin-left: 1%;
+}
+@media (min-width: 992px) {
+    #back-to-home{
+        display: none;
+    }
+    #info1{
+        display: none;
+    }
+    #info2{
+        display: none;
+    }
+    #info3{
+        display: none;
+    }
+    #info4{
+        display: none;
+    }
+    #info5{
+        display: none;
+    }
+    #add-porsche{
+        display: none;
+    }
+    #add-mercedes{
+        display: none;
+    }
+    #add-audi{
+        display: none;
+    }
+    #add-bmw{
+        display: none;
+    }
+   
+}
+@media (max-width: 992px) {
+   body{
+    font-size:x-small;
+   }
+   #div1{
+    height: 25vh;
+    width: 33vw;
+    margin-left: 15vw;
+}
+#div2{
+    height: 25vh;
+    width: 33vw;
+    
+    
+}
+#div3{
+    height: 25vh;
+    width: 33vw;
+    margin-left: 15vw;
+
+}
+#div4{
+    height: 25vh;
+    width: 33vw;
+}
+.mobile-menu{
+    margin-left: 3%;
+}
+
+}
+h2{
+    margin-left: 40%;
+}
+.change-name-div{
+    margin-left: 15vw;
+}

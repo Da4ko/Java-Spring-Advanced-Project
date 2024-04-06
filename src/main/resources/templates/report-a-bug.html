@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>report a bug</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/report-a-bug.css">
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+          <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand nav-link" target="_blank" href="">
+              <strong>Tuzar Cars | </strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Porsche | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Mercedes | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Audi | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">BMW</a>
+                </li>
+              </ul>
+      
+              <ul class="navbar-nav list-inline">
+                <!-- Icons -->
+                
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Login | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Register | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Logout | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">About Us | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Bugs</a>
+                </li>
+           
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main>
+        <div class="form">
+            <form class="mx-auto w-25 bg-blur rounded" method="" action="">
+            <div id = "form-group-all" class="form-group">
+                
+                <div class="form-group">
+                    <div class="text-white label-holder d-flex justify-content-center" id="select">
+                        <label id = "label-text1" for="model" class="h4 mb-2">Bug Type</label>
+                    </div>
+        
+                    <select id = "select-problem" class="browser-default custom-select" id="model" name="model">
+                        <option value="">Select type of the bug</option>
+                        <option value="">Not responding page</option>
+                        <option value="">Leaked database</option>
+                        <option value="">Suspicious activity by other user</option>
+                        <option value="">Suspicious activity by other user</option>
+                        <option value="">Other</option>
+                    </select>
+        
+                    <small class="text-danger">Model error message</small>
+                </div>
+
+                <div id = "form-report" class="form-group">
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label id = "label-text2" class="h4 mb-2">Report a bug</label>
+                    </div>
+                    <textarea type="text" class="form-control" id="description" name="description" rows="12" cols="80"></textarea>
+                    
+                    <small class="text-danger">report error message</small>
+                    <br>
+                    <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Report-a-bug">Submit report</button>
+                    <br>
+                    <button id = "back-to-home" type="submit" class="btn btn-success  mb-3" value="Back-to-home">Return home</button>
+                </div>
+            </div>
+            </form>
+        </div>
+
+
+    </main>
+    <footer>
+      <h6 class="footer-text"> All rights reserved™</h6>
+    </footer>
+</body>
+</html>

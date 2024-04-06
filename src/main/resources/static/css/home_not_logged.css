@@ -1,0 +1,55 @@
+/* Carousel styling */
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 96.5vh;
+}
+header{
+  font-size: x-large;
+}
+body{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-size: x-large;
+  height: 100vh;
+   width: 100vw;
+  
+}
+
+.carousel-item:nth-child(1) {
+ /* background-image: url('https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg');
+ background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;*/
+}
+
+
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+  .d-flex.justify-content-center.align-items-center.h-100 {
+    padding: 25%;
+  }
+  #mobile-button{
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  
+ 
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+.d-flex.justify-content-center.align-items-center.h-100 {
+  padding: 25%;
+}
+footer { color: white; margin-left: 45%;}
+

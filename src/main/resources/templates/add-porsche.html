@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/add.css">
+    <title>Add Porsche</title>
+
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+          <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand nav-link" target="_blank" href="">
+              <strong>Tuzar Cars | </strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Porsche | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Mercedes | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Audi | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">BMW</a>
+                </li>
+              </ul>
+      
+              <ul class="navbar-nav list-inline">
+                <!-- Icons -->
+                
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Login | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Register | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Logout | </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="#">About Us | </a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" href="#">Bugs</a>
+                  </li>
+           
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main>
+        
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Porsche</span></h1>
+        <hr>
+        <div class="form">
+        <form class="mx-auto w-25 bg-blur rounded" method="" action="">
+
+<div class="first-column">
+            <div class="form-group">
+                <div class="text-white label-holder d-flex justify-content-center" id="select">
+                    <label id = "label-text1" for="model" class="h4 mb-2">Model</label>
+                </div>
+    
+                <select class="browser-default custom-select" id="model" name="model">
+                    <option value="">Select model</option>
+                    <option value="">Cayenne</option>
+                    <option value="">Maccan</option>
+                    <option value="">Panamera</option>
+                </select>
+    
+                <small >Model error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text2" for="horsepower" class="h4 mb-2">Horsepower</label>
+                </div>
+                <input type="number" step="1" class="form-control" id="horsepower" name="horsepower"/>
+                <small >Horsepower error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text3" for="image" class="h4 mb-2">Image url</label>
+                </div>
+                <input type="img" step="1" class="form-control" id="image" name="image"/>
+                <small >image error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text4" for="releaseDate" class="h4 mb-2">Release date</label>
+                </div>
+                <input type="date" class="form-control" id="releaseDate" name="releaseDate"/>
+                <small >Release date error</small>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <div class="text-white label-holder d-flex justify-content-center">
+                    <label id = "label-text5" for="category" class="h4 mb-2">Category</label>
+                </div>
+    
+                <select class="browser-default custom-select" id="category" name="category">
+                    <option value="">Select category</option>
+                    <option value="">Comby</option>
+                    <option value="">Sedan</option>
+                    <option value="">SUV</option>
+                </select>
+    
+                <small>Category error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="text-white label-holder d-flex justify-content-center">
+                    <label id = "label-text6" for="engine-type" class="h4 mb-2">Engine Type</label>
+                </div>
+    
+                <select class="browser-default custom-select" id="engine-type" name="engine-type">
+                    <option value="">Select engine type</option>
+                    <option value="">Diesel</option>
+                    <option value="">Gasoline</option>
+                    <option value="">Electric</option>
+                </select>
+    
+                <small>engine-type error message</small>
+            </div>
+        </div>
+        <div class = "second-column">
+            <div class="form-group">
+                <div class="text-white label-holder d-flex justify-content-center">
+                    <label id = "label-text7" for="transmission" class="h4 mb-2">Transmission</label>
+                </div>
+    
+                <select class="browser-default custom-select" id="transmission" name="transmission">
+                    <option value="">Select transmission type</option>
+                    <option value="">manual</option>
+                    <option value="">automatic</option>
+                    <option value="">other</option>
+                </select>
+    
+                <small>transmission error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text8" for="km" class="h4 mb-2">Kilometers</label>
+                </div>
+                <input type="km" step="1" class="form-control" id="km" name="km"/>
+                <small >km error message</small>
+            </div>
+
+          
+    
+            
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text9"for="description" class="h4 mb-2">Description</label>
+                </div>
+                <textarea type="text" class="form-control" id="description" name="description" rows="2" cols="62"></textarea>
+                <small >description error message</small>
+            </div>
+
+            <div id="sbm-btn" class="button-holder d-flex justify-content-center">
+                <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Add-porsche">Add Porsche</button>
+                
+                <button id = "back-to-home" type="submit" class="btn btn-success  mb-3" value="Back-home">Return home</button>
+            </div>
+        </div>
+        </form>
+        
+    </div>
+
+    <hr>
+    </main>
+    <footer>
+        <h6 class="footer-text"> All rights reserved™</h6>
+    </footer>
+</body>
+</html>

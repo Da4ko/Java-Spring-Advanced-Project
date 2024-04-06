@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/cars.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+          <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand nav-link" target="_blank" href="">
+              <strong>Tuzar Cars | </strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Porsche | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Mercedes | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Audi | </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">BMW</a>
+                </li>
+              </ul>
+      
+              <ul class="navbar-nav list-inline">
+                <!-- Icons -->
+                
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Login | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Register | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Logout | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">About Us | </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="#">Bugs</a>
+                </li>
+           
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main>
+
+        <div class="brown-beige-theme">
+            <div class = "row-menu">
+            <h2>Porsche cars </h2>
+            <button id = "add-car" type="submit" class="btn btn-success  mb-3">Add Porsche</button>
+            <button id = "back-to-home" type="submit" class="btn btn-success  mb-3">Return to home</button>
+
+           </div>
+            <img class = "logo-img"src="" alt="">
+            <div class="split">
+              <div class = "your-cars">
+                <h3>Your Cars</h3>
+                <div class="user-cars">
+                  <!-- Example car offers -->
+                  <div class="car-card user-car">
+                    <p>Model: <label>911 Turbo S</label></p>
+                    <p>Horsepower: <label>680</label></p>
+                    <p>Release Date: <label>20/3/2023</label></p>
+                    <p>Category: <label>sedan</label></p>
+                    <p>Engine Type: <label>gasoline</label></p>
+                    <p>Transmission: <label>manual</label></p>
+                    <p>Kilometers: <label>10000</label></p>
+                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
+                    <img class="car-image" src="https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1685458010/autoexpress/2023/05/Porsche%20911%20GTS%20UK%20001_otx6j7.jpg" alt="Porsche 911 Turbo S">
+                      
+                    <button  id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                  </div>
+                  <!-- Add more car cards here -->
+                </div>
+              </div>
+              <div class = "other-cars">
+                <h3>Other Users' Cars</h3>
+                <div class="other-user-cars">
+                  <!-- Example car offers -->
+                  <div class="car-card other-user-car">
+                    <p>Model: <label>911 Turbo S</label></p>
+                    <p>Horsepower: <label>680</label></p>
+                    <p>Release Date: <label>20/3/2023</label></p>
+                    <p>Category: <label>sedan</label></p>
+                    <p>Engine Type: <label>gasoline</label></p>
+                    <p>Transmission: <label>manual</label></p>
+                    <p>Kilometers: <label>10000</label></p>
+                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
+                    <img class="car-image" src="https://cdn.motor1.com/images/mgl/G3Wzm1/s1/2024-porsche-panamera-turbo-sonderwunsch.jpg" alt="Porsche Panamera">
+                  </div>
+
+                  <div class="car-card other-user-car">
+                    <p>Model: <label>911 Turbo S</label></p>
+                    <p>Horsepower: <label>680</label></p>
+                    <p>Release Date: <label>20/3/2023</label></p>
+                    <p>Category: <label>sedan</label></p>
+                    <p>Engine Type: <label>gasoline</label></p>
+                    <p>Transmission: <label>manual</label></p>
+                    <p>Kilometers: <label>10000</label></p>
+                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
+                    <img class="car-image" src="https://cdn.motor1.com/images/mgl/G3Wzm1/s1/2024-porsche-panamera-turbo-sonderwunsch.jpg" alt="Porsche Panamera">
+                  </div>
+                  <!-- Add more car cards here -->
+                </div>
+              </div>
+            </div>
+          </div>
+    </main>
+    <footer>
+      <h6 class="footer-text"> All rights reserved™</h6>
+       </footer>
+</body>
+</html>
