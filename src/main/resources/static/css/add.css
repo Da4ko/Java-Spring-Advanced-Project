@@ -3,9 +3,9 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-   font-size: x-large;
-   height: 100vh;
-   width: 100vw;
+    font-size: x-large;
+    height: 120vh;
+    width: 100vw;
 }
 header{
     font-size: x-large;
@@ -16,18 +16,18 @@ main{
     color: white;
 }
 footer {
-     margin-top: 30px;
-     color: white;
-     margin-left: 45%;
-     height: 3vh;
+    margin-top: 180px;
+    color: white;
+    margin-left: 45%;
+    height: 3vh;
 }
 .footer-text{
     padding-top: 5px;
     margin-top: 10px;
 }
 .from{
-    max-height: 75vh; 
-    overflow-y: auto; 
+    max-height: 75vh;
+    overflow-y: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -44,7 +44,7 @@ hr{
 }
 #sbm-btn{
     margin-top: 19%;
-    
+
 }
 
 #label-text1{
@@ -74,6 +74,12 @@ hr{
 #label-text9{
     font-size:large;
 }
+#label-text10{
+    font-size:large;
+}
+#label-text11{
+    font-size:large;
+}
 small{
     font-size: small;
 }
@@ -84,15 +90,15 @@ input{
 
 @media (min-width: 992px) {
     #back-to-home{
-         display: none;
+        display: none;
 
     }
-   
-   
+
+
 }
 @media (max-width: 992px) {
-   
-     #sbm-btn-btn{
+
+    #sbm-btn-btn{
         margin-right:40px;
         margin-left: 100px;
     }
@@ -143,10 +149,10 @@ input{
         display: flex;
         flex-direction: row;
         gap: 40px;
-       
+
     }
     #sbm-btn-btn{
-    margin-top: 20px;
+        margin-top: 20px;
     }
     #back-to-home{
         margin-top: 20px;
@@ -159,7 +165,7 @@ input{
     }
     hr{
         margin-left: 15%;
-    margin-right: 15%;
+        margin-right: 15%;
     }
- 
+
 }

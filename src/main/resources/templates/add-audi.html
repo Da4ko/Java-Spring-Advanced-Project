@@ -36,10 +36,10 @@
                   <a class="nav-link" aria-current="page" href="#">BMW</a>
                 </li>
               </ul>
-      
+
               <ul class="navbar-nav list-inline">
                 <!-- Icons -->
-                
+
                 <li class="nav-item active">
                   <a class="nav-link" aria-current="page" href="#">Login | </a>
                 </li>
@@ -55,7 +55,7 @@
                   <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#">Bugs</a>
                   </li>
-           
+
               </ul>
             </div>
           </div>
@@ -63,7 +63,7 @@
         <!-- Navbar -->
     </header>
     <main>
-        
+
         <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Audi</span></h1>
         <hr>
         <div class="form">
@@ -74,14 +74,14 @@
                 <div class="text-white label-holder d-flex justify-content-center" id="select">
                     <label id = "label-text1" for="model" class="h4 mb-2">Model</label>
                 </div>
-    
+
                 <select class="browser-default custom-select" id="model" name="model">
                     <option value="">Select model</option>
                     <option value="">A4</option>
                     <option value="">A6</option>
                     <option value="">A8</option>
                 </select>
-    
+
                 <small >Model error message</small>
             </div>
 
@@ -115,14 +115,14 @@
                 <div class="text-white label-holder d-flex justify-content-center">
                     <label id = "label-text5" for="category" class="h4 mb-2">Category</label>
                 </div>
-    
+
                 <select class="browser-default custom-select" id="category" name="category">
                     <option value="">Select category</option>
                     <option value="">Comby</option>
                     <option value="">Sedan</option>
                     <option value="">SUV</option>
                 </select>
-    
+
                 <small>Category error message</small>
             </div>
 
@@ -130,14 +130,14 @@
                 <div class="text-white label-holder d-flex justify-content-center">
                     <label id = "label-text6" for="engine-type" class="h4 mb-2">Engine Type</label>
                 </div>
-    
+
                 <select class="browser-default custom-select" id="engine-type" name="engine-type">
                     <option value="">Select engine type</option>
                     <option value="">Diesel</option>
                     <option value="">Gasoline</option>
                     <option value="">Electric</option>
                 </select>
-    
+
                 <small>engine-type error message</small>
             </div>
         </div>
@@ -146,14 +146,14 @@
                 <div class="text-white label-holder d-flex justify-content-center">
                     <label id = "label-text7" for="transmission" class="h4 mb-2">Transmission</label>
                 </div>
-    
+
                 <select class="browser-default custom-select" id="transmission" name="transmission">
                     <option value="">Select transmission type</option>
                     <option value="">manual</option>
                     <option value="">automatic</option>
                     <option value="">other</option>
                 </select>
-    
+
                 <small>transmission error message</small>
             </div>
 
@@ -165,9 +165,31 @@
                 <small >km error message</small>
             </div>
 
-          
-    
-            
+            <div class="form-group">
+                <div class="text-white label-holder d-flex justify-content-center">
+                    <label id = "label-text10" for="currency" class="h4 mb-2">Currency</label>
+                </div>
+
+                <select class="browser-default custom-select" id="currency" name="currency">
+                    <option value="">Select Currency</option>
+                    <option value="">manual</option>
+                    <option value="">automatic</option>
+                    <option value="">other</option>
+                </select>
+
+                <small>currency error message</small>
+            </div>
+
+            <div class="form-group">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label id = "label-text11" for="price" class="h4 mb-2">Price</label>
+                </div>
+                <input type="price" step="1" class="form-control" id="price" name="price"/>
+                <small >price error message</small>
+            </div>
+
+
+
 
             <div class="form-group">
                 <div class="label-holder text-white textCol d-flex justify-content-center">
@@ -179,12 +201,12 @@
 
             <div id="sbm-btn" class="button-holder d-flex justify-content-center">
                 <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Add-audi">Add Audi</button>
-                
+
                 <button id = "back-to-home" type="submit" class="btn btn-success  mb-3" value="Back-to-home">Return home</button>
             </div>
         </div>
         </form>
-        
+
     </div>
 
     <hr>
