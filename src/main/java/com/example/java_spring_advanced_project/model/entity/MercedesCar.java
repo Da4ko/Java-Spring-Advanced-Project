@@ -7,21 +7,23 @@ import jakarta.persistence.*;
 @Table(name = "mercedes_cars")
 public class MercedesCar extends Car {
 
-    private MercedesModelsEnum mercedesModel;
+    private MercedesModel mercedesModel;
     private User owner;
 
     public MercedesCar() {
         super();
     }
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    public MercedesModelsEnum getMercedesModel() {
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "mercedes_model_id", nullable = false)
+    public MercedesModel getMercedesModel() {
         return mercedesModel;
     }
 
-    public void setMercedesModel(MercedesModelsEnum mercedesModel) {
+    public void setMercedesModel(MercedesModel mercedesModel) {
         this.mercedesModel = mercedesModel;
     }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
     public User getOwner() {

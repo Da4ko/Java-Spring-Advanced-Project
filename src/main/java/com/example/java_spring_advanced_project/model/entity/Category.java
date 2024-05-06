@@ -15,6 +15,12 @@ public class Category extends BaseEntity {
 
     public Category() {
     }
+
+    public Category(CategoryName category, String description) {
+        this.category = category;
+        this.description = description;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     public CategoryName getCategory() {

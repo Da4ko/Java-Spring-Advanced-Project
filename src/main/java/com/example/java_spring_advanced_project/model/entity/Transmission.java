@@ -17,6 +17,12 @@ public class Transmission extends BaseEntity {
 
     public Transmission() {
     }
+
+    public Transmission(TransmissionType transmission, String description) {
+        this.transmission = transmission;
+        this.description = description;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     public TransmissionType getTransmission() {

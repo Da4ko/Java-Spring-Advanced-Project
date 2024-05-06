@@ -16,6 +16,12 @@ public class Engine extends BaseEntity {
 
     public Engine() {
     }
+
+    public Engine(EngineTypeEnum engineType, String description) {
+        this.engineType = engineType;
+        this.description = description;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     public EngineTypeEnum getEngineType() {

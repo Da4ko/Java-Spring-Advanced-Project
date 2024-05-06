@@ -1,29 +1,28 @@
 package com.example.java_spring_advanced_project.model.entity;
 
-import com.example.java_spring_advanced_project.model.entity.enums.AudiModelsEnum;
-
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "audi_cars")
 public class AudiCar extends Car {
 
-
-    private AudiModelsEnum audiModel;
+    private AudiModel audiModel;
     private User owner;
 
     public AudiCar() {
         super();
     }
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    public AudiModelsEnum getAudiModel() {
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "audi_model_id", nullable = false)
+    public AudiModel getAudiModel() {
         return audiModel;
     }
 
-    public void setAudiModel(AudiModelsEnum audiModel) {
+    public void setAudiModel(AudiModel audiModel) {
         this.audiModel = audiModel;
     }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
     public User getOwner() {
