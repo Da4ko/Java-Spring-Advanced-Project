@@ -1,6 +1,5 @@
 package com.example.java_spring_advanced_project.model.entity;
 
-import com.example.java_spring_advanced_project.model.entity.enums.PorscheModelsEnum;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,7 +7,7 @@ import jakarta.persistence.*;
 public class PorscheCar extends Car {
 
     private PorscheModel porscheModel;
-    private User owner;
+    private UserEntity owner;
 
     public PorscheCar() {
         super();
@@ -26,11 +25,11 @@ public class PorscheCar extends Car {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
-    public User getOwner() {
+    public UserEntity getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UserEntity owner) {
         this.owner = owner;
     }
 }

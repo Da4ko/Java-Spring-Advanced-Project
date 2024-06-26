@@ -1,11 +1,12 @@
 package com.example.java_spring_advanced_project.service.impl;
 
 import com.example.java_spring_advanced_project.model.binding.UserRegisterBindingModel;
-import com.example.java_spring_advanced_project.model.entity.User;
+import com.example.java_spring_advanced_project.model.entity.UserEntity;
 import com.example.java_spring_advanced_project.model.entity.UserRoleEntity;
 import com.example.java_spring_advanced_project.repository.UserRepository;
 import com.example.java_spring_advanced_project.repository.UserRoleRepository;
 import com.example.java_spring_advanced_project.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
@@ -26,43 +28,38 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    @Override
-    public void register(UserRegisterBindingModel userRegisterBindingModel) {
-        User user = new User();
 
-        user.setUsername(userRegisterBindingModel.getUsername());
-        user.setEmail(userRegisterBindingModel.getEmail());
-        user.setPassword(passwordEncoder.encode(userRegisterBindingModel.getPassword()));
-        user.setListOfAudiCars(new ArrayList<>());
-        user.setListOfBmwCars(new ArrayList<>());
-        user.setListOfMercedesCars(new ArrayList<>());
-        user.setListOfPorscheCars(new ArrayList<>());
+   @Override
 
-        // Retrieve roles from the repository
-        Optional<UserRoleEntity> adminRole = userRoleRepository.findById(1L); // Assuming admin role ID is 1
-        Optional<UserRoleEntity> userRole = userRoleRepository.findById(2L);  // Assuming user role ID is 2
+   public void register(UserRegisterBindingModel userRegisterBindingModel) {
+       UserEntity userEntity = new UserEntity();
 
-        // Create a list to hold the roles
-        List<UserRoleEntity> roles = new ArrayList<>();
+       userEntity.setUsername(userRegisterBindingModel.getUsername());
+       userEntity.setEmail(userRegisterBindingModel.getEmail());
+       userEntity.setPassword(passwordEncoder.encode(userRegisterBindingModel.getPassword()));
+       userEntity.setListOfAudiCars(new ArrayList<>());
+       userEntity.setListOfBmwCars(new ArrayList<>());
+       userEntity.setListOfMercedesCars(new ArrayList<>());
+       userEntity.setListOfPorscheCars(new ArrayList<>());
 
-        // Check if the email ends with ".admin" to determine role assignment
-        if (userRegisterBindingModel.getEmail().endsWith(".admin")) {
-            adminRole.ifPresent(roles::add);
-        }
 
-        // Add the user role regardless of email suffix
-        userRole.ifPresent(roles::add);
+       // Retrieve roles from the repository
+       UserRoleEntity adminRole = userRoleRepository.findById(1L).orElseThrow(() -> new RuntimeException("Admin role not found")); // Assuming admin role ID is 1
+       UserRoleEntity userRole = userRoleRepository.findById(2L).orElseThrow(() -> new RuntimeException("User role not found"));  // Assuming user role ID is 2
 
-        /* If user has admin role, also assign user role
-        if (!roles.isEmpty() && roles.stream().anyMatch(role -> role.getId() == 1L)) {
-            userRole.ifPresent(userRoleEntity -> roles.add(userRoleEntity));
-        }*/
+       List<UserRoleEntity> roles = new ArrayList<>();
+       if (userRegisterBindingModel.getEmail().endsWith(".admin")) {
+           roles.add(adminRole);
+           roles.add(userRole); // Also add user role
+       } else {
+           roles.add(userRole);
+       }
 
-        // Set the roles for the user
-        user.setRoles(roles);
-        user.setActive(true);
+       userEntity.setRoles(roles);
+       userEntity.setActive(true);
+       // Add logging to check the entity state before saving
+       System.out.println("User Entity before saving: " + userEntity);
 
-        // Save the user to the repository
-        userRepository.save(user);
-    }
+       userRepository.save(userEntity);
+   }
 }

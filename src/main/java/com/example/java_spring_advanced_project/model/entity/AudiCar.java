@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class AudiCar extends Car {
 
     private AudiModel audiModel;
-    private User owner;
+    private UserEntity owner;
 
     public AudiCar() {
         super();
@@ -25,11 +25,11 @@ public class AudiCar extends Car {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
-    public User getOwner() {
+    public UserEntity getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(UserEntity owner) {
         this.owner = owner;
     }
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:fragment="head">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand nav-link" target="_blank" href="">
+                <strong>Tuzar Cars | </strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
+                    aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item active" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" href="#">Porsche | </a>
+                    </li>
+                    <li class="nav-item active" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" href="#">Mercedes | </a>
+                    </li>
+                    <li class="nav-item active" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" href="#">Audi | </a>
+                    </li>
+                    <li class="nav-item active" sec:authorize="isAuthenticated()">
+                        <a class="nav-link" href="#">BMW</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav list-inline">
+                    <!-- Icons -->
+
+                    <li class="nav-item active" sec:authorize="isAuthenticated()">
+                        <form th:action="@{/users/logout}" method="post" >
+                            <input  type="submit" class="nav-link" value="Logout" />
+                        </form>
+                    </li>
+                    <li class="nav-item active" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" href="/users/login">Login | </a>
+                    </li>
+                    <li class="nav-item active" sec:authorize="!isAuthenticated()">
+                        <a class="nav-link" href="/users/register">Register | </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">About Us | </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Bugs</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+</header>
+<footer th:fragment="footer">
+    <h6 class="footer-text"> All rights reserved™</h6>
+</footer>
+</body>
+</html>

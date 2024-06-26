@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,59 +10,7 @@
     <link rel="stylesheet" href="/css/home_logged_in.css">
 </head>
 <body>
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-          <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand nav-link" target="_blank" href="">
-              <strong>Tuzar Cars | </strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarExample01">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Porsche | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Mercedes | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Audi | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">BMW</a>
-                </li>
-              </ul>
-      
-              <ul class="navbar-nav list-inline">
-                <!-- Icons -->
-                
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Login | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Register | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Logout | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">About Us | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Bugs</a>
-                </li>
-           
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- Navbar -->
-    </header>
+<header th:replace="fragments/commons::head"></header>
     <main>
       <div class="mobile-menu">
       <button id="back-to-home"type="submit" class="btn btn-danger  mb-3">Logout</button>
@@ -70,7 +20,9 @@
       <button id="info4"type="submit" class="btn btn-secondary  mb-3">View all Audi cars</button>
       <button id="info5"type="submit" class="btn btn-secondary  mb-3">View all BMW cars</button>
     </div>
-      <h4 class="welcome-text" >Welcome to your Tuzar cars profile $user$ here you can see a few information about our 4 brands and add your own cars!</h4>
+        <h4 class="welcome-text" sec:authorize="isAuthenticated()">
+            Welcome to your Tuzar cars profile <span th:text="${#authentication.name}"></span>, here you can see information about our 4 brands and add your own cars!
+        </h4>
       <br>
       <div class = "change-name-div">
       <label>Change username:</label>

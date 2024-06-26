@@ -6,12 +6,9 @@ import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
 public abstract class BaseEntity {
-
     private String id;
 
-    public BaseEntity() {
-
-    }
+    public BaseEntity() {}
 
     @Id
     @GeneratedValue(generator = "uuid-string")

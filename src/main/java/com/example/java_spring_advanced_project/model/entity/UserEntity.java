@@ -1,10 +1,12 @@
 package com.example.java_spring_advanced_project.model.entity;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity {
+public class UserEntity extends BaseEntity {
 
     private String username;
     private String email;
@@ -13,10 +15,10 @@ public class User extends BaseEntity {
     private List<BmwCar> listOfBmwCars;
     private List<MercedesCar> listOfMercedesCars;
     private List<PorscheCar> listOfPorscheCars;
-    private List<UserRoleEntity> roles;
+    private List<UserRoleEntity> roles = new ArrayList<>();
     private boolean active;
 
-    public User() {
+    public UserEntity() {
     }
     @Column(nullable = false, unique = true)
     public String getUsername() {
@@ -74,7 +76,12 @@ public class User extends BaseEntity {
     public void setListOfPorscheCars(List<PorscheCar> listOfPorscheCars) {
         this.listOfPorscheCars = listOfPorscheCars;
     }
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_entity_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id")
+    )
     public List<UserRoleEntity> getRoles() {
         return roles;
     }
@@ -87,8 +94,9 @@ public class User extends BaseEntity {
         return active;
     }
 
-    public User setActive(boolean active) {
+    public UserEntity setActive(boolean active) {
         this.active = active;
         return this;
     }
+
 }

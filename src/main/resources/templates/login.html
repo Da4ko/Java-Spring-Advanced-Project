@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,95 +9,48 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/login.css">
 </head>
-<body class="body-login"> 
-    <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-          <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand nav-link" target="_blank" href="">
-              <strong>Tuzar Cars | </strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarExample01">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Porsche | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Mercedes | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Audi | </a>
-                </li>
-                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">BMW</a>
-                </li>
-              </ul>
-      
-              <ul class="navbar-nav list-inline">
-                <!-- Icons -->
-                
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Login | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Register | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Logout | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">About Us | </a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="#">Bugs</a>
-                </li>
-           
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <!-- Navbar -->
-    </header>
+<body class="body-login">
+<header th:replace="fragments/commons::head"></header>
    
         <main>
             <div class = "darker-background-div">
             <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Login</span></h1>
             <hr class="hr-3 w-25 bg-white"/>
-            <form class="mx-auto w-25 bg-blur"  action="" method="">
-                
-                <div  class="text-danger">Error messages:</div>
-                <div class="text-danger">Incorrect username or password!</div>
-        
+            <form class="mx-auto w-25 bg-blur" th:action="@{/users/login}" th:method="post">
+                <!--
+                               <div  class="text-danger">Error messages:</div>
+                               <div class="text-danger">Incorrect username or password!</div>
+                               -->
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                 <div class="form-group">
                     <div class="label-holder text-white d-flex justify-content-center">
                         <label for="username" class="h3 mb-2">Username</label>
                     </div>
-                    <input type="text" class="form-control" id="username" name="username"/>
+                    <input type="text" class="form-control" id="username" name="username" />
                 </div>
-        
+
                 <div class="form-group">
                     <div class="label-holder text-white d-flex justify-content-center">
                         <label for="password" class="h3 mb-2">Password</label>
                     </div>
                     <input type="password" class="form-control" id="password" name="password"/>
                 </div>
-        
+
+                <div th:if="${loginError}" class="alert alert-danger">
+                    Invalid username or password. Please try again.
+                </div>
+
                 <div class="button-holder d-flex justify-content-center" id = "login-button">
                     <button type="submit" class="btn btn-warning  mb-3">Login</button>
                 </div>
                 <br>
                 <div class="button-holder d-flex justify-content-center" id = "back-to-home">
-                  <button type="submit" class="btn btn-success  mb-3">Return to home</button>
+                  <button type="submit" class="btn btn-success  mb-3" th:href="@{/home_not_logged_in.html}" >Return to home</button>
               </div>
             </form>
             </div>
-            
-        
+
+
     </main>
     <footer>
       <h6 class="footer-text"> All rights reserved™</h6>

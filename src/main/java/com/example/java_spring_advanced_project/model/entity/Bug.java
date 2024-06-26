@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Bug extends BaseEntity {
 
 
-    private User reportedBy;
+    private UserEntity reportedBy;
 
     private String description;
 
@@ -15,11 +15,11 @@ public class Bug extends BaseEntity {
     }
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "reported_by")
-    public User getReportedBy() {
+    public UserEntity getReportedBy() {
         return reportedBy;
     }
 
-    public void setReportedBy(User reportedBy) {
+    public void setReportedBy(UserEntity reportedBy) {
         this.reportedBy = reportedBy;
     }
 
