@@ -37,6 +37,7 @@ footer {
     margin-right: -40%;
 }
 small{
+    font-size: x-small;
     color: red;
 }
 @media (max-width: 992px) {

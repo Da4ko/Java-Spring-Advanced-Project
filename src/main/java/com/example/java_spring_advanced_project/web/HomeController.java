@@ -22,11 +22,15 @@ public class HomeController {
         }
     }*/
     @GetMapping("/home")
-    public String index1(){
-        return "home_not_logged_in"; //home_logged_in
+    public String home(){
+        return "home_logged_in"; //home_logged_in
     }
-    @GetMapping("/test/logout")
+  /*  @GetMapping("/test/logout")
     public String index2(){
-        return "home_logged_in"; //login
-    }
+        return "home_not_logged_in"; //login
+    }*/
+  @GetMapping("/about-us")
+  public String aboutUs(){
+      return "about-us"; //home_logged_in
+  }
 }

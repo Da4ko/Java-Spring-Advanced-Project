@@ -8,6 +8,7 @@
     <title>About us</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/about-us.css"/>
+
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
@@ -17,9 +18,11 @@
             Welcome to Tuzar Cars, the premier online destination for automotive enthusiasts! At Tuzar Cars, we're passionate about bringing together Audi, BMW, Porsche and Mercedes owners from around the globe. Our platform serves as a vibrant community where users can showcase their prized vehicles or explore the stunning collections of fellow enthusiasts. Whether you're a proud owner looking to share your automotive journey or simply an admirer of fine automobiles, Tuzar Cars offers an immersive experience tailored to your passion. With a user-friendly interface and robust features, we provide a seamless platform for connecting with like-minded individuals and discovering the latest trends in the automotive world. Join us in celebrating the elegance, performance, and innovation embodied by brands Audi, BMW, Porsche, and Mercedes-Benz. Together, let's fuel our love for automobiles and create lasting connections within the Tuzar Cars community.
            
             <br>
-            <button id="report-bug" type="submit" class="btn btn-danger  mb-3">Report a bug</button>
+            <a id="report-bug" type="submit" class="btn btn-danger  mb-3" href="" sec:authorize="isAuthenticated()">Report a bug</a>
+            <a id="report-bug1" type="submit" class="btn btn-danger  mb-3" href="" sec:authorize="!isAuthenticated()">Report a bug ne</a>
               <br>
-            <button id="back-to-home" type="submit" class="btn btn-success  mb-3">Return home</button>
+            <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
+
         </div>
         <div class = "contacts">
             <h1 class = "h1-social">Follow and contact us:</h1>

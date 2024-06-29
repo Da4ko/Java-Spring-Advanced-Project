@@ -46,6 +46,9 @@ h1{
     #back-to-home{
         display: none;
     }
+    #back-to-home-a{
+        display: none;
+    }
    
 }
 @media (max-width: 992px) {

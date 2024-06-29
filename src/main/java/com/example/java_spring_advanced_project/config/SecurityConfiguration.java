@@ -1,5 +1,6 @@
 package com.example.java_spring_advanced_project.config;
 
+import com.example.java_spring_advanced_project.model.entity.enums.RoleEnum;
 import com.example.java_spring_advanced_project.repository.UserRepository;
 import com.example.java_spring_advanced_project.service.impl.TuzarCarsUserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -19,7 +20,9 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests(
                 authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers("/","/users/login","users/register", "/users/login-error").permitAll()
+                        .requestMatchers("/","/users/login","users/register", "/users/login-error", "/about-us").permitAll()
+                        .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home", "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home").hasRole(RoleEnum.user.name())
+                        .requestMatchers("bugs/reported-bugs").hasRole(RoleEnum.admin.name())
                         .anyRequest().authenticated()
 
         ).formLogin(
@@ -33,7 +36,7 @@ public class SecurityConfiguration {
         ).logout(
                 logout -> {
                     logout.logoutUrl("/users/logout")
-                            .logoutSuccessUrl("/test/logout")
+                            .logoutSuccessUrl("/")
                             .invalidateHttpSession(true);
                 }
         );

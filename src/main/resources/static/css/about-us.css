@@ -125,6 +125,12 @@ h2{
     margin-top: 20px;
     margin-left: 14vw;
 }
+#report-bug1{
+    font-size: x-large;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 14vw;
+}
 
 @media (min-width: 992px) {
     #back-to-home{
@@ -150,6 +156,13 @@ h2{
         padding: 10px;
         margin-top: 7vh;
         
+    }
+    #report-bug1{
+        margin-left: 9.5vw;
+        font-size: medium;
+        padding: 10px;
+        margin-top: 7vh;
+
     }
     #back-to-home{
         margin-top: 8vh;
