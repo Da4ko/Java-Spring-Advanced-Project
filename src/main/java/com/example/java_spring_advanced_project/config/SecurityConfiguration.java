@@ -22,6 +22,7 @@ public class SecurityConfiguration {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/","/users/login","users/register", "/users/login-error", "/about-us").permitAll()
                         .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home", "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home").hasRole(RoleEnum.user.name())
+                        .requestMatchers("/error").permitAll()
                         .requestMatchers("bugs/reported-bugs").hasRole(RoleEnum.admin.name())
                         .anyRequest().authenticated()
 

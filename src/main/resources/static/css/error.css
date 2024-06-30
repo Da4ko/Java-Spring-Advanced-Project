@@ -1,0 +1,113 @@
+
+* { box-sizing: border-box; }
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif, system-ui;
+    background-color:  #d2a679;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+
+}
+
+h1 {
+    --distance: .01em;
+    --dist-factor: 1;
+    position: relative;
+    display: block;
+    margin: 0;
+    font-size: 15vmax;
+    font-weight: normal;
+    font-family: monospace;
+    line-height: 1;
+
+    filter: saturate(150%);}
+
+
+
+
+::after,
+ [data-overlay]::after {
+     backface-visibility: hidden;
+     animation: animText 3s linear infinite;
+ }
+
+::after {
+     --dist-factor: 2;
+     content: attr(data-txt);
+     position: absolute;
+     left: 0;
+     top: 0;
+
+     mix-blend-mode: screen;
+ }
+
+::after, [data-overlay]:first-child::after {
+     animation-direction: reverse;
+ }
+
+
+p {
+    position: relative;
+
+    text-align: center;
+}
+
+@keyframes animText {
+    0% {
+        transform:
+                rotate(0deg)
+                translate(
+                        calc(var(--distance) * -1 * var(--dist-factor)),
+                        calc(var(--distance) * -1 * var(--dist-factor))
+                )
+                rotate(0deg);
+    }
+    100% {
+        transform:
+                rotate(360deg)
+                translate(
+                        calc(var(--distance) * -1 * var(--dist-factor)),
+                        calc(var(--distance) * -1 * var(--dist-factor))
+                )
+                rotate(-360deg);
+    }
+}
+
+.titanic {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .1725em;
+    font-size: 50vmax;
+    transform-origin: 33.3% 100%;
+    transform: rotate(30deg);}
+
+before,
+after {
+     content: '';
+     margin: 0 auto;
+ }
+
+before {
+     position: absolute;
+     left: .125em;
+     right: .5em;
+     bottom: 100%;
+     width: .1em;
+     height: .25em;
+     border-radius: .0125em;
+
+ }
+
+
