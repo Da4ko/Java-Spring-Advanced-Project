@@ -21,7 +21,9 @@ public class SecurityConfiguration {
                 authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/","/users/login","users/register", "/users/login-error", "/about-us").permitAll()
-                        .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home", "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home").hasRole(RoleEnum.user.name())
+                        .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home",
+                        "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home"
+                        ,"/audi/add-audi", "/bmw/add-bmw", "/porsche/add-porsche", "/mercedes/add-mercedes" ).hasRole(RoleEnum.user.name())
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("bugs/reported-bugs").hasRole(RoleEnum.admin.name())
                         .anyRequest().authenticated()

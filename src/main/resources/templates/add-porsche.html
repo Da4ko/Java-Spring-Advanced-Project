@@ -27,9 +27,9 @@
     
                 <select class="browser-default custom-select" id="model" name="model">
                     <option value="">Select model</option>
-                    <option value="">Cayenne</option>
-                    <option value="">Maccan</option>
-                    <option value="">Panamera</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.PorscheModelsEnum).values()}"
+                            th:text="${m}" th:value="${m}">Cayenne</option>
+
                 </select>
     
                 <small >Model error message</small>
@@ -69,9 +69,9 @@
     
                 <select class="browser-default custom-select" id="category" name="category">
                     <option value="">Select category</option>
-                    <option value="">Comby</option>
-                    <option value="">Sedan</option>
-                    <option value="">SUV</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CategoryName).values()}"
+                            th:text="${m}" th:value="${m}" value="">Comby</option>
+
                 </select>
     
                 <small>Category error message</small>
@@ -84,9 +84,9 @@
     
                 <select class="browser-default custom-select" id="engine-type" name="engine-type">
                     <option value="">Select engine type</option>
-                    <option value="">Diesel</option>
-                    <option value="">Gasoline</option>
-                    <option value="">Electric</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.EngineTypeEnum).values()}"
+                            th:text="${m}" th:value="${m}">Diesel</option>
+
                 </select>
     
                 <small>engine-type error message</small>
@@ -100,9 +100,9 @@
     
                 <select class="browser-default custom-select" id="transmission" name="transmission">
                     <option value="">Select transmission type</option>
-                    <option value="">manual</option>
-                    <option value="">automatic</option>
-                    <option value="">other</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.TransmissionType).values()}"
+                            th:text="${m}" th:value="${m}">manual</option>
+
                 </select>
     
                 <small>transmission error message</small>
@@ -124,9 +124,9 @@
 
                 <select class="browser-default custom-select" id="currency" name="currency">
                     <option value="">Select Currency</option>
-                    <option value="">manual</option>
-                    <option value="">automatic</option>
-                    <option value="">other</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CurrencyName).values()}"
+                            th:text="${m}" th:value="${m}">euro</option>
+
                 </select>
 
                 <small>currency error message</small>

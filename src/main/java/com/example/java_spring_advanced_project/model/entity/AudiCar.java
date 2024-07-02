@@ -13,7 +13,7 @@ public class AudiCar extends Car {
         super();
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "audi_model_id", nullable = false)
     public AudiModel getAudiModel() {
         return audiModel;

@@ -3,7 +3,7 @@ package com.example.java_spring_advanced_project.model.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 
 
 @MappedSuperclass

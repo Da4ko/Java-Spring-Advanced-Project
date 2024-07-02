@@ -17,7 +17,7 @@
         <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Audi</span></h1>
         <hr>
         <div class="form">
-        <form class="mx-auto w-25 bg-blur rounded" method="" action="">
+        <form class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/audi/add-audi}">
 
 <div class="first-column">
             <div class="form-group">
@@ -25,11 +25,11 @@
                     <label id = "label-text1" for="model" class="h4 mb-2">Model</label>
                 </div>
 
-                <select class="browser-default custom-select" id="model" name="model">
+                <select class="browser-default custom-select" id="model" name="audiModel">
                     <option value="">Select model</option>
-                    <option value="">A4</option>
-                    <option value="">A6</option>
-                    <option value="">A8</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.AudiModelsEnum).values()}"
+                            th:text="${m}" th:value="${m}" >A4</option>
+
                 </select>
 
                 <small >Model error message</small>
@@ -39,7 +39,7 @@
                 <div class="label-holder text-white textCol d-flex justify-content-center">
                     <label id = "label-text2" for="horsepower" class="h4 mb-2">Horsepower</label>
                 </div>
-                <input type="number" step="1" class="form-control" id="horsepower" name="horsepower"/>
+                <input type="number" step="1" class="form-control" id="horsepower" name="horsePower"/>
                 <small >Horsepower error message</small>
             </div>
 
@@ -47,7 +47,7 @@
                 <div class="label-holder text-white textCol d-flex justify-content-center">
                     <label id = "label-text3" for="image" class="h4 mb-2">Image url</label>
                 </div>
-                <input type="img" step="1" class="form-control" id="image" name="image"/>
+                <input type="img" step="1" class="form-control" id="image" name="imageUrl"/>
                 <small >image error message</small>
             </div>
 
@@ -66,11 +66,11 @@
                     <label id = "label-text5" for="category" class="h4 mb-2">Category</label>
                 </div>
 
-                <select class="browser-default custom-select" id="category" name="category">
+                <select class="browser-default custom-select" id="category" name="categoryName">
                     <option value="">Select category</option>
-                    <option value="">Comby</option>
-                    <option value="">Sedan</option>
-                    <option value="">SUV</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CategoryName).values()}"
+                            th:text="${m}" th:value="${m}" >Comby</option>
+
                 </select>
 
                 <small>Category error message</small>
@@ -81,11 +81,11 @@
                     <label id = "label-text6" for="engine-type" class="h4 mb-2">Engine Type</label>
                 </div>
 
-                <select class="browser-default custom-select" id="engine-type" name="engine-type">
+                <select class="browser-default custom-select" id="engine-type" name="engineType">
                     <option value="">Select engine type</option>
-                    <option value="">Diesel</option>
-                    <option value="">Gasoline</option>
-                    <option value="">Electric</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.EngineTypeEnum).values()}"
+                            th:text="${m}" th:value="${m}">Diesel</option>
+
                 </select>
 
                 <small>engine-type error message</small>
@@ -99,9 +99,9 @@
 
                 <select class="browser-default custom-select" id="transmission" name="transmission">
                     <option value="">Select transmission type</option>
-                    <option value="">manual</option>
-                    <option value="">automatic</option>
-                    <option value="">other</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.TransmissionType).values()}"
+                            th:text="${m}" th:value="${m}">manual</option>
+
                 </select>
 
                 <small>transmission error message</small>
@@ -111,7 +111,7 @@
                 <div class="label-holder text-white textCol d-flex justify-content-center">
                     <label id = "label-text8" for="km" class="h4 mb-2">Kilometers</label>
                 </div>
-                <input type="km" step="1" class="form-control" id="km" name="km"/>
+                <input type="km" step="1" class="form-control" id="km" name="kilometers"/>
                 <small >km error message</small>
             </div>
 
@@ -120,11 +120,11 @@
                     <label id = "label-text10" for="currency" class="h4 mb-2">Currency</label>
                 </div>
 
-                <select class="browser-default custom-select" id="currency" name="currency">
+                <select class="browser-default custom-select" id="currency" name="currencyName">
                     <option value="">Select Currency</option>
-                    <option value="">manual</option>
-                    <option value="">automatic</option>
-                    <option value="">other</option>
+                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CurrencyName).values()}"
+                    th:text="${m}" th:value="${m}">euro</option>
+
                 </select>
 
                 <small>currency error message</small>
@@ -150,7 +150,7 @@
             </div>
 
             <div id="sbm-btn" class="button-holder d-flex justify-content-center">
-                <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Add-audi">Add Audi</button>
+                <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" >Add Audi</button>
 
                 <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
             </div>
