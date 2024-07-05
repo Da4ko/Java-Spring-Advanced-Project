@@ -35,8 +35,8 @@ public class PorscheController {
     }
     @PostMapping("/add-porsche")
     public ModelAndView create(PorscheAddBindingModel porscheAddBindingModel){
-
-        porscheService.createPorsche(porscheAddBindingModel);
-        return new ModelAndView("redirect:/porsche-cars");
+        boolean isCreated = porscheService.createPorsche(porscheAddBindingModel);
+        String view = isCreated ? "redirect:/porsche/porsche-cars-home" : "add-porsche";
+        return new ModelAndView(view);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.java_spring_advanced_project.web;
 
-import com.example.java_spring_advanced_project.model.binding.AudiAddBindingModel;
 import com.example.java_spring_advanced_project.model.binding.BmwAddBindingModel;
 import com.example.java_spring_advanced_project.model.dto.HomeBmwCarsDto;
 import com.example.java_spring_advanced_project.service.BmwService;
@@ -35,8 +34,8 @@ public class BmwController {
     }
     @PostMapping("/add-bmw")
     public ModelAndView create(BmwAddBindingModel bmwAddBindingModel){
-
-        bmwService.createBmw(bmwAddBindingModel);
-        return new ModelAndView("redirect:/BMW-cars");
+        boolean isCreated = bmwService.createBmw(bmwAddBindingModel);
+        String view = isCreated ? "redirect:/bmw/bmw-cars-home" : "add-bmw";
+        return new ModelAndView(view);
     }
 }

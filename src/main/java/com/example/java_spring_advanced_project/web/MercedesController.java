@@ -1,6 +1,7 @@
 package com.example.java_spring_advanced_project.web;
 
 import com.example.java_spring_advanced_project.model.binding.AudiAddBindingModel;
+import com.example.java_spring_advanced_project.model.binding.BmwAddBindingModel;
 import com.example.java_spring_advanced_project.model.binding.MercedesAddBindingModel;
 import com.example.java_spring_advanced_project.model.dto.HomeMercedesCarsDto;
 import com.example.java_spring_advanced_project.service.MercedesService;
@@ -30,13 +31,13 @@ public class MercedesController {
     }
 
     @GetMapping("/add-mercedes")
-    public ModelAndView addMercedesPage(){
+    public ModelAndView addBmwPage(){
         return new ModelAndView("add-mercedes");
     }
     @PostMapping("/add-mercedes")
     public ModelAndView create(MercedesAddBindingModel mercedesAddBindingModel){
-
-        mercedesService.createMercedes(mercedesAddBindingModel);
-        return new ModelAndView("redirect:/mercedes.cars");
+        boolean isCreated = mercedesService.createMercedes(mercedesAddBindingModel);
+        String view = isCreated ? "redirect:/mercedes/mercedes-cars-home" : "add-mercedes";
+        return new ModelAndView(view);
     }
 }

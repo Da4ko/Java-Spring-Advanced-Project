@@ -6,5 +6,5 @@ import com.example.java_spring_advanced_project.model.dto.HomeMercedesCarsDto;
 public interface MercedesService {
     HomeMercedesCarsDto getMercedesCarsForHomePage();
 
-    void createMercedes(MercedesAddBindingModel mercedesAddBindingModel);
+    boolean createMercedes(MercedesAddBindingModel mercedesAddBindingModel);
 }

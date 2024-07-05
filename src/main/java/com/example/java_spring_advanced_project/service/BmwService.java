@@ -6,5 +6,5 @@ import com.example.java_spring_advanced_project.model.dto.HomeBmwCarsDto;
 public interface BmwService {
     HomeBmwCarsDto getBmwCarsForHomePage();
 
-    void createBmw(BmwAddBindingModel bmwAddBindingModel);
+    boolean createBmw(BmwAddBindingModel bmwAddBindingModel);
 }
