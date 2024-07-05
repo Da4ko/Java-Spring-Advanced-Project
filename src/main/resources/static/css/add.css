@@ -82,6 +82,7 @@ hr{
 }
 small{
     font-size: small;
+    color: red;
 }
 input{
     height: 2vh;

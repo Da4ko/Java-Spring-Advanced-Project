@@ -17,145 +17,124 @@
         <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Porsche</span></h1>
         <hr>
         <div class="form">
-        <form class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/porsche/add-porsche}">
+            <form th:object="${porscheAddBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/porsche/add-porsche}">
+                <div class="first-column">
+                    <div class="form-group">
+                        <div class="text-white label-holder d-flex justify-content-center" id="select">
+                            <label id="label-text1" for="model" class="h4 mb-2">Model</label>
+                        </div>
+                        <select th:field="*{porscheModel}" th:errorclass="bg-danger" class="browser-default custom-select" id="model" name="porscheModel">
+                            <option value="">Select model</option>
+                            <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.PorscheModelsEnum).values()}"
+                                    th:text="${m}" th:value="${m}">911</option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('porscheModel')}" th:errors="*{porscheModel}">Model error message</small>
+                    </div>
 
-<div class="first-column">
-            <div class="form-group">
-                <div class="text-white label-holder d-flex justify-content-center" id="select">
-                    <label id = "label-text1" for="model" class="h4 mb-2">Model</label>
-                </div>
-    
-                <select class="browser-default custom-select" id="model" name="porscheModel">
-                    <option value="">Select model</option>
-                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.PorscheModelsEnum).values()}"
-                            th:text="${m}" th:value="${m}">Cayenne</option>
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text2" for="horsepower" class="h4 mb-2">Horsepower</label>
+                        </div>
+                        <input th:field="*{horsePower}" th:errorclass="bg-danger" type="number" step="1" class="form-control" id="horsepower" name="horsePower"/>
+                        <small th:if="${#fields.hasErrors('horsePower')}" th:errors="*{horsePower}">Horsepower error message</small>
+                    </div>
 
-                </select>
-    
-                <small >Model error message</small>
-            </div>
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text3" for="image" class="h4 mb-2">Image url</label>
+                        </div>
+                        <input th:field="*{imageUrl}" th:errorclass="bg-danger" type="text" class="form-control" id="image" name="imageUrl"/>
+                        <small th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}">Image error message</small>
+                    </div>
 
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text2" for="horsepower" class="h4 mb-2">Horsepower</label>
-                </div>
-                <input type="number" step="1" class="form-control" id="horsepower" name="horsePower"/>
-                <small >Horsepower error message</small>
-            </div>
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text4" for="releaseDate" class="h4 mb-2">Release date</label>
+                        </div>
+                        <input th:field="*{releaseDate}" th:errorclass="bg-danger" type="date" class="form-control" id="releaseDate" name="releaseDate"/>
+                        <small th:if="${#fields.hasErrors('releaseDate')}" th:errors="*{releaseDate}">Release date error</small>
+                    </div>
 
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text3" for="image" class="h4 mb-2">Image url</label>
-                </div>
-                <input type="img" step="1" class="form-control" id="image" name="imageUrl"/>
-                <small >image error message</small>
-            </div>
+                    <div class="form-group">
+                        <div class="text-white label-holder d-flex justify-content-center">
+                            <label id="label-text5" for="category" class="h4 mb-2">Category</label>
+                        </div>
+                        <select th:field="*{categoryName}" th:errorclass="bg-danger" class="browser-default custom-select" id="category" name="categoryName">
+                            <option value="">Select category</option>
+                            <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CategoryName).values()}"
+                                    th:text="${m}" th:value="${m}">Sports Car</option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('categoryName')}" th:errors="*{categoryName}">Category error message</small>
+                    </div>
 
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text4" for="releaseDate" class="h4 mb-2">Release date</label>
-                </div>
-                <input type="date" class="form-control" id="releaseDate" name="releaseDate"/>
-                <small >Release date error</small>
-            </div>
-
-
-
-
-            <div class="form-group">
-                <div class="text-white label-holder d-flex justify-content-center">
-                    <label id = "label-text5" for="category" class="h4 mb-2">Category</label>
-                </div>
-    
-                <select class="browser-default custom-select" id="category" name="categoryName">
-                    <option value="">Select category</option>
-                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CategoryName).values()}"
-                            th:text="${m}" th:value="${m}" value="">Comby</option>
-
-                </select>
-    
-                <small>Category error message</small>
-            </div>
-
-            <div class="form-group">
-                <div class="text-white label-holder d-flex justify-content-center">
-                    <label id = "label-text6" for="engine-type" class="h4 mb-2">Engine Type</label>
-                </div>
-    
-                <select class="browser-default custom-select" id="engine-type" name="engineType">
-                    <option value="">Select engine type</option>
-                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.EngineTypeEnum).values()}"
-                            th:text="${m}" th:value="${m}">Diesel</option>
-
-                </select>
-    
-                <small>engine-type error message</small>
-            </div>
-        </div>
-        <div class = "second-column">
-            <div class="form-group">
-                <div class="text-white label-holder d-flex justify-content-center">
-                    <label id = "label-text7" for="transmission" class="h4 mb-2">Transmission</label>
-                </div>
-    
-                <select class="browser-default custom-select" id="transmission" name="transmission">
-                    <option value="">Select transmission type</option>
-                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.TransmissionType).values()}"
-                            th:text="${m}" th:value="${m}">manual</option>
-
-                </select>
-    
-                <small>transmission error message</small>
-            </div>
-
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text8" for="km" class="h4 mb-2">Kilometers</label>
-                </div>
-                <input type="km" step="1" class="form-control" id="km" name="kilometers"/>
-                <small >km error message</small>
-            </div>
-
-
-            <div class="form-group">
-                <div class="text-white label-holder d-flex justify-content-center">
-                    <label id = "label-text10" for="currency" class="h4 mb-2">Currency</label>
+                    <div class="form-group">
+                        <div class="text-white label-holder d-flex justify-content-center">
+                            <label id="label-text6" for="engine-type" class="h4 mb-2">Engine Type</label>
+                        </div>
+                        <select th:field="*{engineType}" th:errorclass="bg-danger" class="browser-default custom-select" id="engine-type" name="engineType">
+                            <option value="">Select engine type</option>
+                            <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.EngineTypeEnum).values()}"
+                                    th:text="${m}" th:value="${m}">Petrol</option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('engineType')}" th:errors="*{engineType}">Engine type error message</small>
+                    </div>
                 </div>
 
-                <select class="browser-default custom-select" id="currency" name="currencyName">
-                    <option value="">Select Currency</option>
-                    <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CurrencyName).values()}"
-                            th:text="${m}" th:value="${m}">euro</option>
+                <div class="second-column">
+                    <div class="form-group">
+                        <div class="text-white label-holder d-flex justify-content-center">
+                            <label id="label-text7" for="transmission" class="h4 mb-2">Transmission</label>
+                        </div>
+                        <select th:field="*{transmission}" th:errorclass="bg-danger" class="browser-default custom-select" id="transmission" name="transmission">
+                            <option value="">Select transmission type</option>
+                            <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.TransmissionType).values()}"
+                                    th:text="${m}" th:value="${m}">Manual</option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('transmission')}" th:errors="*{transmission}">Transmission error message</small>
+                    </div>
 
-                </select>
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text8" for="km" class="h4 mb-2">Kilometers</label>
+                        </div>
+                        <input th:field="*{kilometers}" th:errorclass="bg-danger" type="number" step="1" class="form-control" id="km" name="kilometers"/>
+                        <small th:if="${#fields.hasErrors('kilometers')}" th:errors="*{kilometers}">Kilometers error message</small>
+                    </div>
 
-                <small>currency error message</small>
-            </div>
+                    <div class="form-group">
+                        <div class="text-white label-holder d-flex justify-content-center">
+                            <label id="label-text10" for="currency" class="h4 mb-2">Currency</label>
+                        </div>
+                        <select th:field="*{currencyName}" th:errorclass="bg-danger" class="browser-default custom-select" id="currency" name="currencyName">
+                            <option value="">Select currency</option>
+                            <option th:each="m : ${T(com.example.java_spring_advanced_project.model.entity.enums.CurrencyName).values()}"
+                                    th:text="${m}" th:value="${m}">Euro</option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('currencyName')}" th:errors="*{currencyName}">Currency error message</small>
+                    </div>
 
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text11" for="price" class="h4 mb-2">Price</label>
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text11" for="price" class="h4 mb-2">Price</label>
+                        </div>
+                        <input th:field="*{price}" th:errorclass="bg-danger" type="number" step="1" class="form-control" id="price" name="price"/>
+                        <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price error message</small>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-holder text-white textCol d-flex justify-content-center">
+                            <label id="label-text9" for="description" class="h4 mb-2">Description</label>
+                        </div>
+                        <textarea th:field="*{description}" th:errorclass="bg-danger" class="form-control" id="description" name="description" rows="2" cols="62"></textarea>
+                        <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description error message</small>
+                    </div>
+
+                    <div id="sbm-btn" class="button-holder d-flex justify-content-center">
+                        <button id="sbm-btn-btn" type="submit" class="btn btn-warning mb-3">Add Porsche</button>
+                        <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/">Return to home</a>
+                    </div>
                 </div>
-                <input type="price" step="1" class="form-control" id="price" name="price"/>
-                <small >price error message</small>
-            </div>
-            
-
-            <div class="form-group">
-                <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label id = "label-text9"for="description" class="h4 mb-2">Description</label>
-                </div>
-                <textarea type="text" class="form-control" id="description" name="description" rows="2" cols="62"></textarea>
-                <small >description error message</small>
-            </div>
-
-            <div id="sbm-btn" class="button-holder d-flex justify-content-center">
-                <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Add-porsche">Add Porsche</button>
-
-                <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
-            </div>
-        </div>
-        </form>
+            </form>
         
     </div>
 

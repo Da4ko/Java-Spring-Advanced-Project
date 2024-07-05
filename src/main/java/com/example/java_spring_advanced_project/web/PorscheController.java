@@ -1,14 +1,18 @@
 package com.example.java_spring_advanced_project.web;
 
-import com.example.java_spring_advanced_project.model.binding.AudiAddBindingModel;
+
 import com.example.java_spring_advanced_project.model.binding.PorscheAddBindingModel;
 import com.example.java_spring_advanced_project.model.dto.HomePorscheCarsDto;
 import com.example.java_spring_advanced_project.service.PorscheService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/porsche")
@@ -30,11 +34,23 @@ public class PorscheController {
     }
 
     @GetMapping("/add-porsche")
-    public ModelAndView addPorschePage(){
+    public ModelAndView addPorschePage(Model model){
+        if(!model.containsAttribute("porscheAddBindingModel")){
+            model.addAttribute("porscheAddBindingModel", new PorscheAddBindingModel());
+        }
         return new ModelAndView("add-porsche");
     }
     @PostMapping("/add-porsche")
-    public ModelAndView create(PorscheAddBindingModel porscheAddBindingModel){
+    public ModelAndView create(@Valid PorscheAddBindingModel porscheAddBindingModel,
+                               BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes){
+
+        if(bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("porscheAddBindingModel", new PorscheAddBindingModel());
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.porscheAddBindingModel", bindingResult);
+            return new ModelAndView("add-porsche");
+        }
+
         boolean isCreated = porscheService.createPorsche(porscheAddBindingModel);
         String view = isCreated ? "redirect:/porsche/porsche-cars-home" : "add-porsche";
         return new ModelAndView(view);

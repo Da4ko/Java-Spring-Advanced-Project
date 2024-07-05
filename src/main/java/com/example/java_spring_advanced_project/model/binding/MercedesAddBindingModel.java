@@ -78,7 +78,7 @@ public class MercedesAddBindingModel {
     public void setTransmission(TransmissionType transmission) {
         this.transmission = transmission;
     }
-    @PositiveOrZero(message = "kilometers cannot be negative")
+    @Positive(message = "kilometers cannot be negative or zero")
     @NotNull(message = "You must enter the kilometers")
     public int getKilometers() {
         return kilometers;
@@ -95,7 +95,7 @@ public class MercedesAddBindingModel {
     public void setCurrencyName(CurrencyName currencyName) {
         this.currencyName = currencyName;
     }
-    @PositiveOrZero(message = "kilometers cannot be negative")
+    @Positive(message = "kilometers cannot be  or zero")
     @NotNull(message = "You must enter the price")
     public double getPrice() {
         return price;
