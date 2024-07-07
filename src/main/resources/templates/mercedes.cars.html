@@ -30,20 +30,31 @@
                 <h3>Your Cars</h3>
                 <div class="user-cars">
                   <!-- Example car offers -->
-                  <div class="car-card user-car">
-                    <p>Model: <label>S350</label></p>
-                    
-                    <p>Horsepower: <label>348</label></p>
-                    <p>Release Date: <label> 12/09/2023</label></p>
-                    <p>Category: <label> Luxury limousine </label></p>
-                    <p>Engine Type: <label>Diesel</label></p>
-                    <p>Transmission: <label>Automatic</label></p>
-                    <p>Kilometers: <label>100000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                    <p>Description: <label>The car.</label></p>
-                    <img class="car-image" src="https://s.list.am/f/664/77669664.webp" alt="Porsche 911 Turbo S">
-                    <button  id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
-                  </div>
+                    <div th:each="o : ${homeMercedesCarsDto.getMyMercedesCars()}" th:object="${o}" class="car-card user-car">
+
+                        <p>Model: <label th:text="|*{mercedesModel}|">A8</label></p>
+
+                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                        <p>Bought for: <label th:text="|*{boughtFor} *{currencyName}|"> 10000 Euro</label></p>
+
+                        <p>Description: <label th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+
+
+                        <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Mercedes-Img">
+
+                        <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                    </div>
                   <!-- Add more car cards here -->
                 </div>
               </div>
@@ -51,35 +62,36 @@
                 <h3>Other Users' Cars</h3>
                 <div class="other-user-cars">
                   <!-- Example car offers -->
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>C 63 AMG</label></p>
-                    
-                    <p>Horsepower: <label>348</label></p>
-                    <p>Release Date: <label> 12/09/2023</label></p>
-                    <p>Category: <label> Luxury limousine </label></p>
-                    <p>Engine Type: <label>Diesel</label></p>
-                    <p>Transmission: <label>Automatic</label></p>
-                    <p>Kilometers: <label>100000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>The car.</label></p>
-                    <img class="car-image" src="https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/1-mercedes-amg-c-63-s-coupe-2019-rt-hero-front.jpg?itok=K8kI7vVd" alt="Porsche 911 Turbo S">
-                  </div>
 
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>Maybach</label></p>
-                    
-                    <p>Horsepower: <label>348</label></p>
-                    <p>Release Date: <label> 12/09/2023</label></p>
-                    <p>Category: <label> Luxury limousine </label></p>
-                    <p>Engine Type: <label>Diesel</label></p>
-                    <p>Transmission: <label>Automatic</label></p>
-                    <p>Kilometers: <label>100000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>The car.</label></p>
-                    <img class="car-image" src="https://i.ytimg.com/vi/K1N-3NkFmkk/sddefault.jpg" alt="Porsche 911 Turbo S">
-                  </div>
+
+                    <div th:each="o : ${homeMercedesCarsDto.getOthersMercedesCars()}" th:object="${o}"  class="car-card other-user-car">
+
+                        <p>Model: <label th:text="|*{mercedesModel}|" >A7</label></p>
+
+                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                        <p>Bought for: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+
+                        <p>Description: <label th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
+
+                        <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Mercedes-Img">
+
+                        <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
+
+                        <button  sec:authorize="hasRole('admin')" id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                    </div>
+
+
                   <!-- Add more car cards here -->
                 </div>
               </div>

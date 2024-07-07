@@ -37,6 +37,8 @@ footer {
   /* Split halves */
   .split {
     display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* Align items to the top */
     overflow-x: auto;
   }
 
@@ -44,6 +46,18 @@ footer {
     flex: 1;
     padding: 10px;
   }
+/* Add this to your existing CSS file */
+
+
+
+
+.your-cars, .other-cars {
+    border: 1px solid black; /* Thin black border */
+    padding: 20px; /* Optional: Add some padding inside the border */
+    margin: 10px; /* Optional: Add some margin outside the border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
 
   /* Car card styling */
   .car-card {
@@ -56,7 +70,9 @@ footer {
     margin-right: 10px;
     overflow: hidden;
   }
-
+.my-cars-border{
+    color: #0a53be;
+}
   /* Background color for user's cars */
   .user-car {
     background-color: #FFE4B5; /* Moccasin */
@@ -96,4 +112,10 @@ footer {
   border-width: 2px;
   border-radius: 10%;
   margin-top: 1%;
+}
+#delete1{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10%;
+    margin-top: 1%;
 }

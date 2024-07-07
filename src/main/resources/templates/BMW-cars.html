@@ -29,19 +29,32 @@
                 <h3>Your Cars</h3>
                 <div class="user-cars">
                   <!-- Example car offers -->
-                  <div class="car-card user-car">
-                    <p>Model: <label>M6</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="https://images.pistonheads.com/nimg/40746/bmw-m6-m6-S4040750-2.jpg" alt="BMW M6">
-                    <button  id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
-                  </div>
+
+                    <div th:each="o : ${homeBmwCarsDto.getMyBmwCars()}" th:object="${o}" class="car-card user-car">
+
+                        <p>Model: <label th:text="|*{bmwModel}|">A8</label></p>
+
+                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                        <p>Bought for: <label th:text="|*{boughtFor} *{currencyName}|"> 10000 Euro</label></p>
+
+                        <p>Description: <label th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+
+
+                        <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="BMW-Img">
+
+                        <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                    </div>
                   <!-- Add more car cards here -->
                 </div>
               </div>
@@ -49,33 +62,37 @@
                 <h3>Other Users' Cars</h3>
                 <div class="other-user-cars">
                   <!-- Example car offers -->
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>7 series</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/BMW_730d_%28G11%2C_Facelift%29_%E2%80%93_f_16012021.jpg/1200px-BMW_730d_%28G11%2C_Facelift%29_%E2%80%93_f_16012021.jpg" alt="BMW 7 series">
-                  </div>
 
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>X7</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="data:image/jpeg;base64,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" alt="BMW X7">
-                  </div>
+
+
+                    <div th:each="o : ${homeBmwCarsDto.getOthersBmwCars()}" th:object="${o}"  class="car-card other-user-car">
+
+                        <p>Model: <label th:text="|*{bmwModel}|" >A7</label></p>
+
+                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                        <p>Bought for: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+
+                        <p>Description: <label th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
+
+                        <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="BMW-Img">
+
+                        <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
+
+                        <button  sec:authorize="hasRole('admin')" id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                    </div>
+
+
                   <!-- Add more car cards here -->
                 </div>
               </div>

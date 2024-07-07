@@ -28,55 +28,71 @@
               <div class = "your-cars">
                 <h3>Your Cars</h3>
                 <div class="user-cars">
-                  <!-- Example car offers -->
-                  <div class="car-card user-car">
-                    <p>Model: <label>A8</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                     <p>Bought for: <label>10000 Euro</label></p>
 
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Audi A8">
-                    <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>  
+                  <!-- Example car offers -->
+                  <div th:each="o : ${homeAudiCarsDto.getMyAudiCars()}" th:object="${o}" class="car-card user-car">
+
+                    <p>Model: <label th:text="|*{audiModel}|">A8</label></p>
+
+                    <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                    <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                    <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                    <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                    <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                    <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                     <p>Bought for: <label th:text="|*{boughtFor} *{currencyName}|"> 10000 Euro</label></p>
+
+                    <p>Description: <label th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+
+
+                    <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Audi-Img">
+
+                    <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
                 </div>
-                  <!-- Add more car cards here -->
                 </div>
+
+
+
               </div>
               <div class = "other-cars">
                 <h3>Other Users' Cars</h3>
                 <div class="other-user-cars">
                   <!-- Example car offers -->
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>A7</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi A7">
+                  <div th:each="o : ${homeAudiCarsDto.getOthersAudiCars()}" th:object="${o}"  class="car-card other-user-car">
+
+                    <p>Model: <label th:text="|*{audiModel}|" >A7</label></p>
+
+                    <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
+
+                    <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
+                    <p>Category: <label th:text="|*{category}|">sedan</label></p>
+
+                    <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
+
+                    <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
+
+                    <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
+
+                      <p>Bought for: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+
+                    <p>Description: <label th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
+
+                      <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi-Img">
+
+                      <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
+
+                      <button  sec:authorize="hasRole('admin')" id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
                   </div>
 
-                  <div class="car-card other-user-car">
-                    <p>Model: <label>Q7</label></p>
-                    <p>Horsepower: <label>680</label></p>
-                    <p>Release Date: <label>20/3/2023</label></p>
-                    <p>Category: <label>sedan</label></p>
-                    <p>Engine Type: <label>gasoline</label></p>
-                    <p>Transmission: <label>manual</label></p>
-                    <p>Kilometers: <label>10000</label></p>
-                      <p>Bought for: <label>10000 Euro</label></p>
-                      <p>Owner: <label>Tuzar1</label></p>
-                    <p>Description: <label>A high-performance sports car with breathtaking acceleration.</label></p>
-                    <img class="car-image" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-q7-102-6495edad98657.jpg?crop=0.583xw:0.436xh;0.333xw,0.439xh&resize=1200:*" alt="Audi Q7">
-                  </div>
+
+
                   <!-- Add more car cards here -->
                 </div>
               </div>
