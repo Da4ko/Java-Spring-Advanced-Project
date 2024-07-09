@@ -162,4 +162,8 @@ public class PorscheServiceImpl implements PorscheService {
             throw new IllegalStateException("Authentication not found or not authenticated!");
         }
     }
+    @Override
+    public void deletePorsche(String porscheUUID) {
+        porscheCarsRepository.deletePorscheCarById(porscheUUID);
+    }
 }

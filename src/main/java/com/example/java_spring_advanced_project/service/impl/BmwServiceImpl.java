@@ -159,4 +159,9 @@ public class BmwServiceImpl implements BmwService {
             throw new IllegalStateException("Authentication not found or not authenticated!");
         }
     }
+
+    @Override
+    public void deleteBmw(String bmwUUID) {
+        bmwCarsRepository.deleteBmwCarById(bmwUUID);
+    }
 }

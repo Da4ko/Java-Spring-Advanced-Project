@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import com.example.java_spring_advanced_project.model.entity.Currency;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -165,7 +166,10 @@ public class AudiServiceImpl implements AudiService {
         }
     }
 
-
+    @Override
+    public void deleteAudi(String audiUUID) {
+        audiCarsRepository.deleteAudiCarById(audiUUID);
+    }
 
 
 }

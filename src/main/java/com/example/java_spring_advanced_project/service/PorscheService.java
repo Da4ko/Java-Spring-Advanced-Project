@@ -7,4 +7,6 @@ public interface PorscheService {
     HomePorscheCarsDto getPorscheCarsForHomePage();
 
     boolean createPorsche(PorscheAddBindingModel porscheAddBindingModel);
+
+    void deletePorsche(String audiUUID);
 }

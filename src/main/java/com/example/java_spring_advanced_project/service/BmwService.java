@@ -7,4 +7,6 @@ public interface BmwService {
     HomeBmwCarsDto getBmwCarsForHomePage();
 
     boolean createBmw(BmwAddBindingModel bmwAddBindingModel);
+
+    void deleteBmw(String bmwUUID);
 }

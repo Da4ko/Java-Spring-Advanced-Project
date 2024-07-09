@@ -7,4 +7,6 @@ public interface MercedesService {
     HomeMercedesCarsDto getMercedesCarsForHomePage();
 
     boolean createMercedes(MercedesAddBindingModel mercedesAddBindingModel);
+
+    void deleteMercedes(String audiUUID);
 }

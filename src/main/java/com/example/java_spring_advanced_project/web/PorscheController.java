@@ -8,9 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -54,5 +52,12 @@ public class PorscheController {
         boolean isCreated = porscheService.createPorsche(porscheAddBindingModel);
         String view = isCreated ? "redirect:/porsche/porsche-cars-home" : "add-porsche";
         return new ModelAndView(view);
+    }
+    @DeleteMapping("/{uuid}")
+    public String delete(@PathVariable("uuid") String uuid, Model model){
+
+        porscheService.deletePorsche(uuid);
+
+        return "redirect:/porsche/porsche-cars-home";
     }
 }

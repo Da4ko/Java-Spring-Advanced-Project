@@ -53,7 +53,9 @@
 
                         <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="BMW-Img">
 
-                        <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                        <form th:method="delete" th:action="@{/bmw/{uuid}(uuid=${o.id})}">
+                            <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                        </form>
                     </div>
                   <!-- Add more car cards here -->
                 </div>
@@ -89,7 +91,9 @@
 
                         <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
 
-                        <button  sec:authorize="hasRole('admin')" id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                        <form  sec:authorize="hasRole('admin')"  th:method="delete" th:action="@{/bmw/{uuid}(uuid=${o.id})}">
+                            <button id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                        </form>
                     </div>
 
 

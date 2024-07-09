@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MercedesCarsRepository extends JpaRepository<MercedesCar, String> {
+    void deleteMercedesCarById(String id);
 }

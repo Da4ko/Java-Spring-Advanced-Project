@@ -159,4 +159,8 @@ public class MercedesServiceImpl implements MercedesService {
             throw new IllegalStateException("Authentication not found or not authenticated!");
         }
     }
+    @Override
+    public void deleteMercedes(String mercedesUUID) {
+        mercedesCarsRepository.deleteMercedesCarById(mercedesUUID);
+    }
 }
