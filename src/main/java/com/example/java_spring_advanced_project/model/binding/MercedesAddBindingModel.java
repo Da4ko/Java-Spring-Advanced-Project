@@ -105,7 +105,7 @@ public class MercedesAddBindingModel {
         this.price = price;
     }
     @NotNull(message = "You must enter the description")
-    @Size(min = 2, max=50, message = "Description must be between 2 and 50 characters")
+    @Size(min = 2, max=500, message = "Description must be between 2 and 500 characters")
     public String getDescription() {
         return description;
     }

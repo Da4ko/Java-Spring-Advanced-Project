@@ -11,39 +11,30 @@
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-        <div class="brown-beige-theme">
-            <div class = "row-menu">
-            <h2>Reported Bugs </h2>
-                <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
-           </div>
-            <img class = "logo-img"src="" alt="">
-            <div class="split">
-              
-                
-                <div id = "bugs" class="user-cars">                 
-                  <div id = "bug1"class="car-card user-car">
-                    <p>Reported By: <label>User123</label></p>
-                    <p>Description: <label>When users attempt to upload images to their profiles, the system intermittently fails to process the files, resulting in error messages. This issue persists across multiple browsers and devices, impeding the functionality of the profile customization feature.</label></p>
-                    <button id="delete1" type="submit" class="btn btn-danger  mb-3">Problem solved</button>  
-                </div>
-                <div id = "bug2"class="car-card user-car">
-                    <p>Reported By: <label>User123</label></p>
-                    <p>Description: <label>When users attempt to upload images to their profiles, the system intermittently fails to process the files, resulting in error messages. This issue persists across multiple browsers and devices, impeding the functionality of the profile customization feature.</label></p>
-                    <button id="delete3" type="submit" class="btn btn-danger  mb-3">Problem solved</button>  
-                </div>
-                <div id = "bug3" class="car-card user-car">
-                    <p>Reported By: <label>User123</label></p>
-                    <p>Description: <label>When users attempt to upload images to their profiles, the system intermittently fails to process the files, resulting in error messages. This issue persists across multiple browsers and devices, impeding the functionality of the profile customization feature.</label></p>
-                    <button id="delete2" type="submit" class="btn btn-danger  mb-3">Problem solved</button>  
-                </div>
-                 
-            </div>
-          </div>
+<main>
+    <div class="brown-beige-theme">
+        <div class="row-menu">
+            <h2>Reported Bugs</h2>
+            <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/">Return to home</a>
         </div>
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-    </footer>
+        <img class="logo-img" src="" alt="">
+        <div class="split">
+            <div id="bugs" class="user-cars">
+                <div th:each="bug : ${homeBugsDto.bugsToBeVisualised}" class="car-card user-car">
+                    <p>Reported By: <span th:text="${bug.reportedBy}">User123</span></p>
+                    <p>Description: <span th:text="${bug.description}">Description goes here</span></p>
+
+                    <form action="" th:method="delete" th:action="@{/bugs/{uuid}(uuid=${bug.id})}">
+                        <button id="delete" type="submit" class="btn btn-danger  mb-3">Bug Solved!</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <h6 class="footer-text">All rights reserved™</h6>
+</footer>
 </body>
 </html>

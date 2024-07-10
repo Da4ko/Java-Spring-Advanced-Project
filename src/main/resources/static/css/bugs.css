@@ -86,23 +86,11 @@ footer {
             overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
         }
 
-#delete1{
-  border-color: black;
-  border-width: 2px;
-  border-radius: 5%;
-  margin-top: 1%;
-}
-#delete2{
+#delete{
   border-color: black;
   border-width: 2px;
   border-radius: 5%;
   margin-top: 1%;
 }
 
-#delete3{
-  border-color: black;
-  border-width: 2px;
-  border-radius: 5%;
-  margin-top: 1%;
-}
 

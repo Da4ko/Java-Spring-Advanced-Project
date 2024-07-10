@@ -8,7 +8,6 @@ public class Bug extends BaseEntity {
 
 
     private UserEntity reportedBy;
-
     private String description;
 
     public Bug() {

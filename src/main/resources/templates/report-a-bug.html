@@ -13,35 +13,18 @@
 <header th:replace="fragments/commons::head"></header>
     <main>
         <div class="form">
-            <form class="mx-auto w-25 bg-blur rounded" method="" action="">
+            <form th:object="${reportABugBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/bugs/add-report}">
             <div id = "form-group-all" class="form-group">
-                
-                <div class="form-group">
-                    <div class="text-white label-holder d-flex justify-content-center" id="select">
-                        <label id = "label-text1" for="model" class="h4 mb-2">Bug Type</label>
-                    </div>
-        
-                    <select id = "select-problem" class="browser-default custom-select" id="model" name="model">
-                        <option value="">Select type of the bug</option>
-                        <option value="">Not responding page</option>
-                        <option value="">Leaked database</option>
-                        <option value="">Suspicious activity by other user</option>
-                        <option value="">Suspicious activity by other user</option>
-                        <option value="">Other</option>
-                    </select>
-        
-                    <small class="text-danger">Model error message</small>
-                </div>
 
                 <div id = "form-report" class="form-group">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
                         <label id = "label-text2" class="h4 mb-2">Report a bug</label>
                     </div>
-                    <textarea type="text" class="form-control" id="description" name="description" rows="12" cols="80"></textarea>
+                    <textarea th:field="*{description}" th:errorclass="bg-danger" type="text" class="form-control" id="description" name="description" rows="12" cols="80"></textarea>
                     
-                    <small class="text-danger">report error message</small>
+                    <small th:if="${#fields.hasErrors('description')}"  th:errors="*{description}" class="text-danger">report error message</small>
                     <br>
-                    <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" value="Report-a-bug">Submit report</button>
+                    <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" >Submit report</button>
                     <br>
                     <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
                 </div>

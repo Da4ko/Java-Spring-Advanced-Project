@@ -24,6 +24,7 @@ public class BmwController {
 
     @GetMapping("/bmw-cars-home")
     public ModelAndView bmwHome() {
+
         ModelAndView modelAndView = new ModelAndView("BMW-cars");
         HomeBmwCarsDto homeBmwCars = bmwService.getBmwCarsForHomePage();
         modelAndView.addObject("homeBmwCarsDto", homeBmwCars);
@@ -42,6 +43,7 @@ public class BmwController {
     public ModelAndView create(@Valid BmwAddBindingModel bmwAddBindingModel,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes){
+
         if(bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("bmwAddBindingModel", new BmwAddBindingModel());
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.bmwAddBindingModel", bindingResult);
