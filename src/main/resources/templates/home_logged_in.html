@@ -11,56 +11,60 @@
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-      <div class="mobile-menu">
-      <button id="back-to-home"type="submit" class="btn btn-danger  mb-3">Logout</button>
-      <button id="info1"type="submit" class="btn btn-info  mb-3">About us</button>
-      <button id="info2"type="submit" class="btn btn-secondary  mb-3">View all Porsche cars</button>
-      <button id="info3"type="submit" class="btn btn-secondary  mb-3">View all Mercedes cars</button>
-      <button id="info4"type="submit" class="btn btn-secondary  mb-3">View all Audi cars</button>
-      <button id="info5"type="submit" class="btn btn-secondary  mb-3">View all BMW cars</button>
+<main>
+    <div class="mobile-menu">
+        <button id="back-to-home" type="submit" class="btn btn-danger mb-3">Logout</button>
+        <button id="info1" type="submit" class="btn btn-info mb-3">About us</button>
+        <button id="info2" type="submit" class="btn btn-secondary mb-3">View all Porsche cars</button>
+        <button id="info3" type="submit" class="btn btn-secondary mb-3">View all Mercedes cars</button>
+        <button id="info4" type="submit" class="btn btn-secondary mb-3">View all Audi cars</button>
+        <button id="info5" type="submit" class="btn btn-secondary mb-3">View all BMW cars</button>
     </div>
-        <h4 class="welcome-text" sec:authorize="isAuthenticated()">
-            Welcome to your Tuzar cars profile <span th:text="${#authentication.name}"></span>, here you can see information about our 4 brands and add your own cars!
-        </h4>
-      <br>
-      <div class = "change-name-div">
-      <label>Change username:</label>
-      <input type="text" id="fname" name="fname">
-      <button id="edit-username-btn" type="submit" class="btn btn-warning mb-3">Change your username</button>
+    <h4 class="welcome-text" sec:authorize="isAuthenticated()">
+        Welcome to your Tuzar cars profile <span th:text="${#authentication.name}"></span>, here you can see information about our 4 brands and add your own cars!
+    </h4>
+    <br>
+
+    <form id="change-username-form" th:action="@{/home}" th:object="${changeUsernameBindingModel}" method="post">
+        <div class="change-name-div">
+            <label>Change username:</label>
+
+            <label>
+                <input type="text" th:field="*{newUserName}" th:errorclass="bg-danger" class="form-control"/>
+            </label>
+            <button id="edit-username-btn" type="submit" class="btn btn-warning mb-3">Change your username</button>
+            <br>
+            <small id="error-text" class="text-danger" th:if="${#fields.hasErrors('newUserName')}" th:errors="*{newUserName}"></small>
+        </div>
+    </form>
+
+    <br>
+    <div id="div1">
+        <h2>Porsche</h2>
+        Porsche is a German automobile manufacturer specializing in high-performance sports cars, SUVs and sedans, headquartered in Stuttgart, Baden-Württemberg, Germany. The company is owned by Volkswagen AG, a controlling stake of which is owned by Porsche Automobil Holding SE. Porsche's current lineup includes the 718, 911, Panamera, Macan, Cayenne and Taycan.
+        <br>
     </div>
-      <br>
-        <div id="div1">
-          <h2>Porsche</h2>
-          Porsche is a German automobile manufacturer specializing in high-performance sports cars, SUVs and sedans, headquartered in Stuttgart, Baden-Württemberg, Germany. The company is owned by Volkswagen AG, a controlling stake of which is owned by Porsche Automobil Holding SE. Porsche's current lineup includes the 718, 911, Panamera, Macan, Cayenne and Taycan.
-          <br>
-          
-        </div>
-        <div id="div2">
-          <h2>Mercedes</h2>
-          Mercedes-Benz commonly referred to as Mercedes and sometimes as Benz, is a German luxury and commercial vehicle automotive brand established in 1926. Mercedes-Benz AG (a Mercedes-Benz Group subsidiary established in 2019) is headquartered in Stuttgart, Baden-Württemberg, Germany.[1] Mercedes-Benz AG produces consumer luxury vehicles and light commercial vehicles badged as Mercedes-Benz. 
-          <br>
-          
-        </div>
-        
-        <div id="div3">
-          <h2>Audi</h2>
-          Audi is a German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany. A subsidiary of the Volkswagen Group, Audi produces vehicles in nine production facilities worldwide. The origins of the company are complex, dating back to the early 20th century and the initial enterprises (Horch and the Audiwerke) founded by engineer August Horch (1868 to 1951).
-         <br>
-         
-        </div>
-        <div id="div4">
-          <h2>BMW</h2>
-          Bayerische Motoren Werke AG, commonly abbreviated to BMW, is a German multinational manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany. The company was founded in 1916 as a manufacturer of aircraft engines, which it produced from 1917 to 1918 and again from 1933 to 1945 creating engines for aircraft that were used in the Second World War.
-         <br>
-          
-        </div>
-      
-    
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-       </footer>
-    
+    <div id="div2">
+        <h2>Mercedes</h2>
+        Mercedes-Benz commonly referred to as Mercedes and sometimes as Benz, is a German luxury and commercial vehicle automotive brand established in 1926. Mercedes-Benz AG (a Mercedes-Benz Group subsidiary established in 2019) is headquartered in Stuttgart, Baden-Württemberg, Germany.[1] Mercedes-Benz AG produces consumer luxury vehicles and light commercial vehicles badged as Mercedes-Benz.
+        <br>
+    </div>
+    <div id="div3">
+        <h2>Audi</h2>
+        Audi is a German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany. A subsidiary of the Volkswagen Group, Audi produces vehicles in nine production facilities worldwide. The origins of the company are complex, dating back to the early 20th century and the initial enterprises (Horch and the Audiwerke) founded by engineer August Horch (1868 to 1951).
+        <br>
+    </div>
+    <div id="div4">
+        <h2>BMW</h2>
+        Bayerische Motoren Werke AG, commonly abbreviated to BMW, is a German multinational manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany. The company was founded in 1916 as a manufacturer of aircraft engines, which it produced from 1917 to 1918 and again from 1933 to 1945 creating engines for aircraft that were used in the Second World War.
+        <br>
+    </div>
+</main>
+<footer>
+    <h6 class="footer-text"> All rights reserved™</h6>
+</footer>
+
+
+
 </body>
 </html>

@@ -21,7 +21,7 @@ public class SecurityConfiguration {
                 authorizeRequests -> authorizeRequests
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .requestMatchers("/","/users/login","users/register", "/users/login-error",
-                                "/about-us").permitAll()
+                                "/about-us", "/changed-username").permitAll()
 
                         .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home"
                         , "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home"

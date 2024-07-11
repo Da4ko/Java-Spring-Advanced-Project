@@ -1,5 +1,6 @@
 package com.example.java_spring_advanced_project.service.impl;
 
+import com.example.java_spring_advanced_project.model.binding.ChangeUsernameBindingModel;
 import com.example.java_spring_advanced_project.model.binding.UserRegisterBindingModel;
 import com.example.java_spring_advanced_project.model.entity.UserEntity;
 import com.example.java_spring_advanced_project.model.entity.UserRoleEntity;
@@ -7,6 +8,8 @@ import com.example.java_spring_advanced_project.repository.UserRepository;
 import com.example.java_spring_advanced_project.repository.UserRoleRepository;
 import com.example.java_spring_advanced_project.service.UserService;
 import jakarta.transaction.Transactional;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -63,4 +66,24 @@ public class UserServiceImpl implements UserService {
 
        userRepository.save(userEntity);
    }
+
+    @Override
+    public boolean changeUsername(ChangeUsernameBindingModel changeUsernameBindingModel) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            String currentUsername = ((UserDetails) principal).getUsername();
+            UserEntity user = userRepository.findByUsername(currentUsername).orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (userRepository.existsByUsername(changeUsernameBindingModel.getNewUserName())) {
+                return false;
+            }
+
+            user.setUsername(changeUsernameBindingModel.getNewUserName());
+            userRepository.save(user);
+            //logout the user here
+            return true;
+        }
+        return false;
+    }
+
 }

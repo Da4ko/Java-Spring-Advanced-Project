@@ -1,37 +1,60 @@
 package com.example.java_spring_advanced_project.web;
 
+import com.example.java_spring_advanced_project.model.binding.ChangeUsernameBindingModel;
+import com.example.java_spring_advanced_project.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomeController {
+    private final UserService userService;
+
+    public HomeController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/")
     public String index(){
         return "home_not_logged_in";
     }
-    /*@GetMapping("/")
-    public String index() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        // Check if user is authenticated
-        if (auth != null && auth.isAuthenticated()) {
-            return "home_logged_in"; // Return the logged-in view
-        } else {
-            return "home_not_logged_in"; // Return the not logged-in view
-        }
-    }*/
     @GetMapping("/home")
-    public String home(){
-        return "home_logged_in"; //home_logged_in
+    public String home(Model model){
+        if(!model.containsAttribute("changeUsernameBindingModel")){
+            model.addAttribute("changeUsernameBindingModel", new ChangeUsernameBindingModel());
+        }
+
+        return "home_logged_in";
     }
-  /*  @GetMapping("/test/logout")
-    public String index2(){
-        return "home_not_logged_in"; //login
-    }*/
+    @PostMapping("/home")
+    public ModelAndView changeUsername(@Valid ChangeUsernameBindingModel changeUsernameBindingModel,
+                                       BindingResult bindingResult,
+                                       RedirectAttributes redirectAttributes) {
+        if(bindingResult.hasErrors()){
+            redirectAttributes.addFlashAttribute("changeUsernameBindingModel", new ChangeUsernameBindingModel());
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.changeUsernameBindingModel", bindingResult);
+            return new ModelAndView("home_logged_in");
+        }
+        boolean isCreated = userService.changeUsername(changeUsernameBindingModel);
+        String view = isCreated ? "redirect:/changed-username" : "home_logged_in";
+
+        return new ModelAndView(view);
+    }
+
+
   @GetMapping("/about-us")
   public String aboutUs(){
-      return "about-us"; //home_logged_in
+      return "about-us";
   }
+    @GetMapping("/changed-username")
+    public String ChangedUsernameMessage(){
+        return "changed-username-page";
+    }
 
 }
