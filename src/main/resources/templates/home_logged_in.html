@@ -13,12 +13,22 @@
 <header th:replace="fragments/commons::head"></header>
 <main>
     <div class="mobile-menu">
-        <button id="back-to-home" type="submit" class="btn btn-danger mb-3">Logout</button>
-        <button id="info1" type="submit" class="btn btn-info mb-3">About us</button>
-        <button id="info2" type="submit" class="btn btn-secondary mb-3">View all Porsche cars</button>
-        <button id="info3" type="submit" class="btn btn-secondary mb-3">View all Mercedes cars</button>
-        <button id="info4" type="submit" class="btn btn-secondary mb-3">View all Audi cars</button>
-        <button id="info5" type="submit" class="btn btn-secondary mb-3">View all BMW cars</button>
+
+        <form th:action="@{/users/logout}" method="post" >
+            <input id="back-to-home" type="submit" class="btn btn-danger mb-3" value="Logout" />
+        </form>
+
+        <a id="info1" class="btn btn-info mb-3" href="/about-us">About Us </a>
+
+        <a id="info2" class="btn btn-secondary mb-3" href="/porsche/porsche-cars-home">View all Porsche cars</a>
+
+        <a id="info3" class="btn btn-secondary mb-3" href="/mercedes/mercedes-cars-home">View all Mercedes cars</a>
+
+        <a id="info4" class="btn btn-secondary mb-3" href="/audi/audi-cars-home">View all Audi cars</a>
+
+        <a id="info5" class="btn btn-secondary mb-3" href="/bmw/bmw-cars-home">View all BMW cars</a>
+
+        <a sec:authorize="hasRole('admin')" id="info6" class="btn btn-secondary mb-3" href="/bugs/reported-bugs">View all the reported bugs</a>
     </div>
     <h4 class="welcome-text" sec:authorize="isAuthenticated()">
         Welcome to your Tuzar cars profile <span th:text="${#authentication.name}"></span>, here you can see information about our 4 brands and add your own cars!
