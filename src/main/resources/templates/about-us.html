@@ -15,12 +15,15 @@
     <main>
         <div class = about-us>
             <h1 class = "h1-about-us">About us</h1>
-            Welcome to Tuzar Cars, the premier online destination for automotive enthusiasts! At Tuzar Cars, we're passionate about bringing together Audi, BMW, Porsche and Mercedes owners from around the globe. Our platform serves as a vibrant community where users can showcase their prized vehicles or explore the stunning collections of fellow enthusiasts. Whether you're a proud owner looking to share your automotive journey or simply an admirer of fine automobiles, Tuzar Cars offers an immersive experience tailored to your passion. With a user-friendly interface and robust features, we provide a seamless platform for connecting with like-minded individuals and discovering the latest trends in the automotive world. Join us in celebrating the elegance, performance, and innovation embodied by brands Audi, BMW, Porsche, and Mercedes-Benz. Together, let's fuel our love for automobiles and create lasting connections within the Tuzar Cars community. If you have any problems, you can log in and report them(a button will appear below this when you log in) or contact us - email: da4ko@gmail.com, phone number: 0888 888 888
+            <p>Welcome to Tuzar Cars, the premier online destination for automotive enthusiasts! At Tuzar Cars, we're passionate about bringing together Audi, BMW, Porsche and Mercedes owners from around the globe. Our platform serves as a vibrant community where users can showcase their prized vehicles or explore the stunning collections of fellow enthusiasts. Whether you're a proud owner looking to share your automotive journey or simply an admirer of fine automobiles, Tuzar Cars offers an immersive experience tailored to your passion. With a user-friendly interface and robust features, we provide a seamless platform for connecting with like-minded individuals and discovering the latest trends in the automotive world. Join us in celebrating the elegance, performance, and innovation embodied by brands Audi, BMW, Porsche, and Mercedes-Benz. Together, let's fuel our love for automobiles and create lasting connections within the Tuzar Cars community. If you have any problems, you can log in and report them (a button will appear below this when you log in), if you have more serious problems using our website please call or email us and we will answer you as soon as possible ->
+                email: <span class="contact-info">da4ko@gmail.com</span>, phone number: <span class="contact-info">0888 888 888</span>.</p>
            
             <br>
             <a id="report-bug" type="submit" class="btn btn-danger  mb-3" th:href="@{/bugs/add-report}" sec:authorize="isAuthenticated()">Report a bug</a>
               <br>
-            <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
+
+            <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/" sec:authorize="!isAuthenticated()" >Return to home</a>
+            <a id = "back-to-home1" type="submit" class="btn btn-success  mb-3" href="/home" sec:authorize="isAuthenticated()">Return to home</a>
 
         </div>
         <div class="contacts">

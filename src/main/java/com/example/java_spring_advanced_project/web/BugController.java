@@ -34,8 +34,8 @@ public class BugController {
     }
     @GetMapping("/add-report")
     public ModelAndView addingBug(Model model){
-       if(!model.containsAttribute("reportABugBindingModel")){
-           model.addAttribute("reportABugBindingModel", new ReportABugBindingModel());
+        if(!model.containsAttribute("reportABugBindingModel")){
+            model.addAttribute("reportABugBindingModel", new ReportABugBindingModel());
         }
         return new ModelAndView("report-a-bug");
     }
@@ -51,9 +51,9 @@ public class BugController {
         }
 
 
-       boolean isCreated = bugsService.create(reportABugBindingModel);
-       String view = isCreated ? "redirect:/bugs/thank-you" : "add-report";
-       return new ModelAndView(view);
+        boolean isCreated = bugsService.create(reportABugBindingModel);
+        String view = isCreated ? "redirect:/bugs/thank-you" : "add-report";
+        return new ModelAndView(view);
 
     }
 
