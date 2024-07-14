@@ -15,34 +15,35 @@
     <div class="mobile-menu">
 
         <form th:action="@{/users/logout}" method="post" >
-            <input id="back-to-home" type="submit" class="btn btn-danger mb-3" value="Logout" />
+            <input id="back-to-home" type="submit" class="btn btn-danger mb-3" th:value="#{home.logged.in.logout}" />
         </form>
 
-        <a id="info1" class="btn btn-info mb-3" href="/about-us">About Us </a>
+        <a id="info1" class="btn btn-info mb-3" href="/about-us" th:text="#{home.logged.in.about.us}">About Us</a>
 
-        <a id="info2" class="btn btn-secondary mb-3" href="/porsche/porsche-cars-home">View all Porsche cars</a>
+        <a id="info2" class="btn btn-secondary mb-3" href="/porsche/porsche-cars-home" th:text="#{home.logged.in.view.porsche}">View all Porsche cars</a>
 
-        <a id="info3" class="btn btn-secondary mb-3" href="/mercedes/mercedes-cars-home">View all Mercedes cars</a>
+        <a id="info3" class="btn btn-secondary mb-3" href="/mercedes/mercedes-cars-home" th:text="#{home.logged.in.view.mercedes}">View all Mercedes cars</a>
 
-        <a id="info4" class="btn btn-secondary mb-3" href="/audi/audi-cars-home">View all Audi cars</a>
+        <a id="info4" class="btn btn-secondary mb-3" href="/audi/audi-cars-home" th:text="#{home.logged.in.view.audi}">View all Audi cars</a>
 
-        <a id="info5" class="btn btn-secondary mb-3" href="/bmw/bmw-cars-home">View all BMW cars</a>
+        <a id="info5" class="btn btn-secondary mb-3" href="/bmw/bmw-cars-home" th:text="#{home.logged.in.view.bmw}">View all BMW cars</a>
 
-        <a sec:authorize="hasRole('admin')" id="info6" class="btn btn-secondary mb-3" href="/bugs/reported-bugs">View all the reported bugs</a>
+        <a sec:authorize="hasRole('admin')" id="info6" class="btn btn-secondary mb-3" href="/bugs/reported-bugs" th:text="#{home.logged.in.view.bugs}">View all the reported bugs</a>
     </div>
     <h4 class="welcome-text" sec:authorize="isAuthenticated()">
-        Welcome to your Tuzar cars profile <span th:text="${#authentication.name}"></span>, here you can see information about our 4 brands and add your own cars!
+        <span th:text="#{home.logged.in.welcome(${#authentication.name})}">Welcome to your Tuzar cars profile John Doe</span>
+
     </h4>
     <br>
 
     <form id="change-username-form" th:action="@{/home}" th:object="${changeUsernameBindingModel}" method="post">
         <div class="change-name-div">
-            <label>Change username:</label>
+            <label th:text="#{home.logged.in.change.username}">Change username:</label>
 
             <label>
                 <input type="text" th:field="*{newUserName}" th:errorclass="bg-danger" class="form-control"/>
             </label>
-            <button id="edit-username-btn" type="submit" class="btn btn-warning mb-3">Change your username</button>
+            <button id="edit-username-btn" type="submit" class="btn btn-warning mb-3" th:text="#{home.logged.in.submit.username}"></button>
             <br>
             <small id="error-text" class="text-danger" th:if="${#fields.hasErrors('newUserName')}" th:errors="*{newUserName}"></small>
         </div>
@@ -51,30 +52,28 @@
     <br>
     <div id="div1">
         <h2>Porsche</h2>
-        Porsche is a German automobile manufacturer specializing in high-performance sports cars, SUVs and sedans, headquartered in Stuttgart, Baden-Württemberg, Germany. The company is owned by Volkswagen AG, a controlling stake of which is owned by Porsche Automobil Holding SE. Porsche's current lineup includes the 718, 911, Panamera, Macan, Cayenne and Taycan.
+        <span th:text="#{home.logged.in.porsche.description}">Porsche is a German automobile manufacturer...</span>
         <br>
     </div>
     <div id="div2">
         <h2>Mercedes</h2>
-        Mercedes-Benz commonly referred to as Mercedes and sometimes as Benz, is a German luxury and commercial vehicle automotive brand established in 1926. Mercedes-Benz AG (a Mercedes-Benz Group subsidiary established in 2019) is headquartered in Stuttgart, Baden-Württemberg, Germany.[1] Mercedes-Benz AG produces consumer luxury vehicles and light commercial vehicles badged as Mercedes-Benz.
+        <span th:text="#{home.logged.in.mercedes.description}">Mercedes-Benz commonly referred to as Mercedes...</span>
         <br>
     </div>
     <div id="div3">
         <h2>Audi</h2>
-        Audi is a German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany. A subsidiary of the Volkswagen Group, Audi produces vehicles in nine production facilities worldwide. The origins of the company are complex, dating back to the early 20th century and the initial enterprises (Horch and the Audiwerke) founded by engineer August Horch (1868 to 1951).
+        <span th:text="#{home.logged.in.audi.description}">Audi is a German automotive manufacturer of luxury vehicles...</span>
         <br>
     </div>
     <div id="div4">
         <h2>BMW</h2>
-        Bayerische Motoren Werke AG, commonly abbreviated to BMW, is a German multinational manufacturer of luxury vehicles and motorcycles headquartered in Munich, Bavaria, Germany. The company was founded in 1916 as a manufacturer of aircraft engines, which it produced from 1917 to 1918 and again from 1933 to 1945 creating engines for aircraft that were used in the Second World War.
+        <span th:text="#{home.logged.in.bmw.description}">Bayerische Motoren Werke AG, commonly abbreviated to BMW...</span>
         <br>
     </div>
 </main>
 <footer>
-    <h6 class="footer-text"> All rights reserved™</h6>
+    <h6 class="footer-text"> <span th:text="#{home.logged.in.footer}">All rights reserved™</span></h6>
 </footer>
-
-
 
 </body>
 </html>

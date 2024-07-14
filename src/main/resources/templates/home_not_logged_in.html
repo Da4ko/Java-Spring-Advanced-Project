@@ -2,56 +2,52 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
-<head >
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuzar Cars</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tuzar Cars</title>
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/home_not_logged.css">
 </head>
 <body style="background-color: rgba(0, 0, 0, 0.6);">
-<!--Main Navigation-->
+<!-- Main Navigation -->
 <header th:replace="fragments/commons::head"></header>
-  <main> <!-- Carousel wrapper -->
-    <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
-        <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
-        <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
-      </ol>
+<main> <!-- Carousel wrapper -->
+  <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
+      <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
+      <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
+    </ol>
 
-      <!-- Inner -->
-      <div class="carousel-inner">
-        <!-- Single item  <th:b sec:authorize="isAuthenticated()"> </th:b>  <th:block sec:authentication="name"></th:block> -->
-        <div class="carousel-item active">
-          <div class="mask" >
-            <div class="d-flex justify-content-center align-items-center h-100">
-              <div class="text-white text-center">
-                <h1 class="mb-3">Welcome to Tuzar Cars!</h1>
-                <h5 class="mb-4">The best website to go through others cars and publish your own</h5>
+    <!-- Inner -->
+    <div class="carousel-inner">
+      <!-- Single item -->
+      <div class="carousel-item active">
+        <div class="mask">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white text-center">
 
-                <a class="btn btn-outline-light btn-lg m-2" href="users/login"
-                   role="button" rel="nofollow" >Login</a>
+              <h1 class="mb-3" th:text="#{home.not.logged.in.welcome}">Welcome to Tuzar Cars!</h1>
+              <h5 class="mb-4" th:text="#{home.not.logged.in.description}">Best website to go through others cars and publish your own</h5>
+              <a class="btn btn-outline-light btn-lg m-2" href="users/login"
+                 role="button" rel="nofollow" th:text="#{home.not.logged.in.login}">Login</a>
+              <a class="btn btn-outline-light btn-lg m-2" href="/users/register"
+                 role="button" th:text="#{home.not.logged.in.register}">Register</a>
+              <br>
+              <a class="btn btn-outline-light btn-lg m-2" id="mobile-button" href=""
+                 target="_blank" th:text="#{home.not.logged.in.about.us}">About us</a>
 
-                <a class="btn btn-outline-light btn-lg m-2" href="/users/register"
-                  role="button">Register</a>
-                  <br>
-                  <a class="btn btn-outline-light btn-lg m-2" id="mobile-button" href="/about-us"
-                   role="button">About us</a>
-              </div>
             </div>
           </div>
         </div>
-  
-      
-   
-    
+      </div>
     </div>
-  </div>
     <!-- Carousel wrapper -->
+  </div>
 </main>
-   <footer th:replace="fragments/commons::footer"> </footer>
-  <!--Main Navigation-->
+<footer th:replace="fragments/commons::footer"></footer>
+<!-- Main Navigation -->
 </body>
 </html>
