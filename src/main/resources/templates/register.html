@@ -1,68 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register to Tuzar Cars</title>
+    <title th:text="#{register.title}">Register to Tuzar Cars</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-        <div class="darker-background-div">
-        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Register</span></h1>
+<main>
+    <div class="darker-background-div">
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark" th:text="#{register.title}">Register</span></h1>
         <hr class="hr-3 w-25 bg-white"/>
-    
-        <form th:object="${userRegisterBindingModel}" class="mx-auto w-25 bg-blur rounded"  th:method="post" th:action="@{/users/register}" >
-    
+
+        <form th:object="${userRegisterBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/users/register}">
+
             <div class="form-group">
                 <div class="label-holder textCol d-flex justify-content-center">
-                    <label for="username" class="h4 mb-2 text-white">Username</label>
+                    <label for="username" class="h4 mb-2 text-white" th:text="#{register.username.label}">Username</label>
                 </div>
-    
-    
-                <input  th:field="*{username}" th:errorclass="bg-danger"  type="text" class="form-control" id="username" name="username"/>
-                <small  th:if="${#fields.hasErrors('username')}" th:errors="*{username}"  >Username error message</small>
+                <input th:field="*{username}" th:errorclass="bg-danger" type="text" class="form-control" id="username" name="username"/>
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" >Username error message</small>
             </div>
-    
+
             <div class="form-group">
                 <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label for="email" class="h4 mb-2">Email</label>
+                    <label for="email" class="h4 mb-2" th:text="#{register.email.label}">Email</label>
                 </div>
-                <input th:field="*{email}" th:errorclass="bg-danger"  type="email" class="form-control" id="email" name="email"/>
-                <small  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >Email error message</small>
+                <input th:field="*{email}" th:errorclass="bg-danger" type="email" class="form-control" id="email" name="email"/>
+                <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" >Email error message</small>
             </div>
-    
+
             <div class="form-group">
                 <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label for="password" class="h4 mb-2">Password</label>
+                    <label for="password" class="h4 mb-2" th:text="#{register.password.label}">Password</label>
                 </div>
                 <input th:field="*{password}" th:errorclass="bg-danger" type="password" class="form-control" id="password" name="password"/>
-                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"  >Password error message</small>
+                <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" >Password error message</small>
             </div>
-    
+
             <div class="form-group">
                 <div class="label-holder text-white textCol d-flex justify-content-center">
-                    <label for="confirmPassword" class="h4 mb-2">Confirm Password</label>
+                    <label for="confirmPassword" class="h4 mb-2" th:text="#{register.confirm.password.label}">Confirm Password</label>
                 </div>
                 <input th:field="*{confirmPassword}" th:errorclass="bg-danger" type="password" class="form-control" id="confirmPassword" name="confirmPassword"/>
-               <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" >Password error message</small>
-            </div>
-    
-            <div class="button-holder d-flex justify-content-center">
-                <button type="submit" class="btn btn-warning  mb-3" value="Register">Register</button>
+                <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" >Password error message</small>
             </div>
 
             <div class="button-holder d-flex justify-content-center">
-                <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/">Return to home</a>
+                <button type="submit" class="btn btn-warning  mb-3" th:text="#{register.register.button}">Register</button>
             </div>
-    
+
+            <div class="button-holder d-flex justify-content-center">
+                <a id="back-to-home" type="submit" class="btn btn-success  mb-3" href="/" th:text="#{register.return.home}">Return to home</a>
+            </div>
+
         </form>
     </div>
-    </main>
-    <footer th:replace="fragments/commons::footer"> </footer>
+</main>
+<footer th:replace="fragments/commons::footer"></footer>
 </body>
 </html>

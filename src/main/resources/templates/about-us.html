@@ -1,81 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About us</title>
+    <title th:text="#{about.us.title}">About Us</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/about-us.css"/>
-
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-        <div class = about-us>
-            <h1 class = "h1-about-us">About us</h1>
-            <p>Welcome to Tuzar Cars, the premier online destination for automotive enthusiasts! At Tuzar Cars, we're passionate about bringing together Audi, BMW, Porsche and Mercedes owners from around the globe. Our platform serves as a vibrant community where users can showcase their prized vehicles or explore the stunning collections of fellow enthusiasts. Whether you're a proud owner looking to share your automotive journey or simply an admirer of fine automobiles, Tuzar Cars offers an immersive experience tailored to your passion. With a user-friendly interface and robust features, we provide a seamless platform for connecting with like-minded individuals and discovering the latest trends in the automotive world. Join us in celebrating the elegance, performance, and innovation embodied by brands Audi, BMW, Porsche, and Mercedes-Benz. Together, let's fuel our love for automobiles and create lasting connections within the Tuzar Cars community. If you have any problems, you can log in and report them (a button will appear below this when you log in), if you have more serious problems using our website please call or email us and we will answer you as soon as possible ->
-                email: <span class="contact-info">da4ko@gmail.com</span>, phone number: <span class="contact-info">0888 888 888</span>.</p>
-           
-            <br>
-            <a id="report-bug" type="submit" class="btn btn-danger  mb-3" th:href="@{/bugs/add-report}" sec:authorize="isAuthenticated()">Report a bug</a>
-              <br>
+<main>
+    <div class="about-us">
+        <h1 class="h1-about-us" th:text="#{about.us.heading}">About Us</h1>
+        <p class="ab-u-text" th:text="#{about.us.description}">Welcome to Tuzar Cars...</p>
+        <span class="contact-info">da4ko@gmail.com | 0888 888 888.</span>
 
-            <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/" sec:authorize="!isAuthenticated()" >Return to home</a>
-            <a id = "back-to-home1" type="submit" class="btn btn-success  mb-3" href="/home" sec:authorize="isAuthenticated()">Return to home</a>
 
-        </div>
-        <div class="contacts">
-            <h1 class="h1-social">Follow and contact us:</h1>
-
-            <div class="social">
-
-                <div class="first-column">
-
-                    <a href="https://www.instagram.com/" target="_blank" class="social-media-div">
-                        <div id="instagram" class="social-media-div">
-                            <!-- Instagram logo or content here -->
-                        </div>
-                    </a>
-                    <a href="https://www.facebook.com/" target="_blank" class="social-media-div">
-                        <div id="facebook" class="social-media-div">
-                            <!-- Facebook logo or content here -->
-                        </div>
-                    </a>
-                    <a href="https://github.com/" target="_blank" class="social-media-div">
-                        <div id="github" class="social-media-div">
-                            <!-- GitHub logo or content here -->
-                        </div>
-                    </a>
-
-                </div>
-
-                <div class="second-column">
-
-                    <a href="https://www.youtube.com/" target="_blank" class="social-media-div">
-                        <div id="youtube" class="social-media-div">
-                            <!-- YouTube logo or content here -->
-                        </div>
-                    </a>
-                    <a href="https://bg.linkedin.com/" target="_blank" class="social-media-div">
-                        <div id="linkedIn" class="social-media-div">
-                            <!-- LinkedIn logo or content here -->
-                        </div>
-                    </a>
-                    <a href="https://web.telegram.org/a/" target="_blank" class="social-media-div">
-                        <div id="telegram" class="social-media-div">
-
-                        </div>
-                    </a>
-
-                </div>
-
+        <br>
+        <a id="report-bug" type="submit" class="btn btn-danger mb-3" th:href="@{/bugs/add-report}" sec:authorize="isAuthenticated()" th:text="#{about.us.report.bug}">Report a bug</a>
+        <br>
+        <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/" sec:authorize="!isAuthenticated()" th:text="#{about.us.return.home}">Return to home</a>
+        <a id="back-to-home1" type="submit" class="btn btn-success mb-3" href="/home" sec:authorize="isAuthenticated()" th:text="#{about.us.return.home}">Return to home</a>
+    </div>
+    <div class="contacts">
+        <h1 class="h1-social" th:text="#{about.us.follow.contact}">Follow and contact us:</h1>
+        <div class="social">
+            <div class="first-column">
+                <a href="https://www.instagram.com/" target="_blank" class="social-media-div">
+                    <div id="instagram" class="social-media-div">
+                        <!-- Instagram logo or content here -->
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" class="social-media-div">
+                    <div id="facebook" class="social-media-div">
+                        <!-- Facebook logo or content here -->
+                    </div>
+                </a>
+                <a href="https://github.com/" target="_blank" class="social-media-div">
+                    <div id="github" class="social-media-div">
+                        <!-- GitHub logo or content here -->
+                    </div>
+                </a>
+            </div>
+            <div class="second-column">
+                <a href="https://www.youtube.com/" target="_blank" class="social-media-div">
+                    <div id="youtube" class="social-media-div">
+                        <!-- YouTube logo or content here -->
+                    </div>
+                </a>
+                <a href="https://bg.linkedin.com/" target="_blank" class="social-media-div">
+                    <div id="linkedIn" class="social-media-div">
+                        <!-- LinkedIn logo or content here -->
+                    </div>
+                </a>
+                <a href="https://web.telegram.org/a/" target="_blank" class="social-media-div">
+                    <div id="telegram" class="social-media-div">
+                        <!-- Telegram logo or content here -->
+                    </div>
+                </a>
             </div>
         </div>
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-       </footer>
+    </div>
+</main>
+<footer>
+    <footer th:replace="fragments/commons::footer"></footer>
+</footer>
 </body>
 </html>

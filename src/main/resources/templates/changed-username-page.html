@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Successfully changed username</title>
+  <title th:text="#{username.changed.title}">Successfully changed username</title>
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/thank-you-for-the-report.css">
   <style>
@@ -31,17 +31,16 @@
 <header></header>
 <main>
 
-  <h1>You successfully changed your username, please press the button below to return home and login again.</h1>
+  <h1 th:text="#{username.changed.message}">You successfully changed your username, please press the button below to return home and login again.</h1>
   <br>
-  <form th:action="@{/users/logout}" method="post" >
-    <input id = "back-to-home" type="submit" class="nav-link" value="Return to home" />
+  <form th:action="@{/users/logout}" method="post">
+    <input id="back-to-home" type="submit" class="nav-link" th:value="#{username.changed.return.home}" />
   </form>
-
 
 </main>
 
 <footer>
-  <h6 class="footer-text"> All rights reserved™</h6>
+  <footer th:replace="fragments/commons::footer"></footer>
 </footer>
 </body>
 </html>

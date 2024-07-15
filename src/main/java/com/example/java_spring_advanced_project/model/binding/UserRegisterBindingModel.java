@@ -10,11 +10,12 @@ public class UserRegisterBindingModel {
     private String email;
     private String password;
     private String confirmPassword;
+
     public UserRegisterBindingModel() {
     }
 
-    @NotBlank(message = "Username cannot be empty String")
-    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters" )
+    @NotBlank(message = "{username.not.empty}")
+    @Size(min = 3, max = 20, message = "{username.length}")
     public String getUsername() {
         return username;
     }
@@ -22,8 +23,9 @@ public class UserRegisterBindingModel {
     public void setUsername(String username) {
         this.username = username;
     }
-    @NotBlank(message = "Password cannot be empty String")
-    @Size(min = 3, max = 20, message = "Password must be between 3 and 20 characters" )
+
+    @NotBlank(message = "{password.not.empty}")
+    @Size(min = 3, max = 20, message = "{password.length}")
     public String getPassword() {
         return password;
     }
@@ -31,8 +33,9 @@ public class UserRegisterBindingModel {
     public void setPassword(String password) {
         this.password = password;
     }
-    @NotBlank(message = "Password cannot be empty String")
-    @Size(min = 3, max = 20, message = "Password must be between 3 and 20 characters" )
+
+    @NotBlank(message = "{confirm.password.not.empty}")
+    @Size(min = 3, max = 20, message = "{confirm.password.length}")
     public String getConfirmPassword() {
         return confirmPassword;
     }
@@ -41,7 +44,7 @@ public class UserRegisterBindingModel {
         this.confirmPassword = confirmPassword;
     }
 
-    @Email(message = "Email must be valid")
+    @Email(message = "{email.invalid}")
     public String getEmail() {
         return email;
     }

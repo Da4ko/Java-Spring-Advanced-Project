@@ -17,7 +17,7 @@ main{
 }
 footer {
      color: white;
-     margin-left: 45%;
+    margin-left: 25%;
      height: 5vh;
 }
 .about-us{
@@ -29,9 +29,11 @@ footer {
     margin-left: 5%;
     height: 82vh;
 
+
 }
 .contact-info{
  color: yellow;
+    display: inline;
 }
 
 main{
@@ -41,6 +43,7 @@ main{
 }
 .h1-about-us{
    margin-left: 38.5%;
+
 }
 
 .contacts{
@@ -147,6 +150,15 @@ h2{
     }
     #back-to-home1{
         display: none;
+    }
+    .ab-u-text{
+        display: inline;
+        font-size: large;
+    }
+    #report-bug{
+
+        margin-top: 7vh;
+
     }
    
    

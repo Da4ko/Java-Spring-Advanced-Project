@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank you</title>
+    <title th:text="#{thank.you.title}">Thank you</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/thank-you-for-the-report.css">
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-        
-        <h1>Thank you for the report! Our team is going to fix the bug as soon as possible</h1>
-        <br>
-
-        <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/home">Return to home</a>
-        
-    </main>
-
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-    </footer>
+<main>
+    <h1 th:text="#{thank.you.message}">Thank you for the report! Our team is going to fix the bug as soon as possible</h1>
+    <br>
+    <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" th:text="#{thank.you.return.home}">Return to home</a>
+</main>
+<footer>
+    <footer th:replace="fragments/commons::footer"></footer>
+</footer>
 </body>
 </html>

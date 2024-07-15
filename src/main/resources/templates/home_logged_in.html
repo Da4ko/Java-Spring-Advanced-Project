@@ -36,6 +36,7 @@
     </h4>
     <br>
 
+
     <form id="change-username-form" th:action="@{/home}" th:object="${changeUsernameBindingModel}" method="post">
         <div class="change-name-div">
             <label th:text="#{home.logged.in.change.username}">Change username:</label>
@@ -72,7 +73,7 @@
     </div>
 </main>
 <footer>
-    <h6 class="footer-text"> <span th:text="#{home.logged.in.footer}">All rights reserved™</span></h6>
+    <footer th:replace="fragments/commons::footer"></footer>
 </footer>
 
 </body>

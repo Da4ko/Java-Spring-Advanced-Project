@@ -23,7 +23,7 @@ public class WebConfig {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.GERMAN); // Set default locale
+        localeResolver.setDefaultLocale(Locale.FRENCH); // Set default locale
         return localeResolver;
     }
 }

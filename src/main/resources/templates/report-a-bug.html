@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>report a bug</title>
+    <title th:text="#{report.bug.title}">Report a Bug</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/report-a-bug.css">
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-        <div class="form">
-            <form th:object="${reportABugBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/bugs/add-report}">
-            <div id = "form-group-all" class="form-group">
-
-                <div id = "form-report" class="form-group">
+<main>
+    <div class="form">
+        <form th:object="${reportABugBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/bugs/add-report}">
+            <div id="form-group-all" class="form-group">
+                <div id="form-report" class="form-group">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
-                        <label id = "label-text2" class="h4 mb-2">Report a bug</label>
+                        <label id="label-text2" class="h4 mb-2" th:text="#{report.bug.heading}">Report a bug</label>
                     </div>
-                    <textarea th:field="*{description}" th:errorclass="bg-danger" type="text" class="form-control" id="description" name="description" rows="12" cols="80"></textarea>
-                    
-                    <small th:if="${#fields.hasErrors('description')}"  th:errors="*{description}" class="text-danger">report error message</small>
+                    <textarea th:field="*{description}" th:errorclass="bg-danger" type="text" class="form-control" id="description" name="description" rows="12" cols="80" th:placeholder="#{report.bug.placeholder}"></textarea>
+                    <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger">report error message</small>
                     <br>
-                    <button id="sbm-btn-btn"type="submit" class="btn btn-warning  mb-3" >Submit report</button>
+                    <button id="sbm-btn-btn" type="submit" class="btn btn-warning mb-3" th:text="#{report.bug.submit}">Submit report</button>
                     <br>
-                    <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/home">Return to home</a>
+                    <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" th:text="#{report.bug.return.home}">Return to home</a>
                 </div>
             </div>
-            </form>
-        </div>
-
-
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-    </footer>
+        </form>
+    </div>
+</main>
+<footer>
+    <h6 class="footer-text" th:text="#{report.bug.footer.text}">All rights reserved™</h6>
+</footer>
 </body>
 </html>

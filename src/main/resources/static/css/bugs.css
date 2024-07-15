@@ -7,6 +7,33 @@ body{
    height: 100vh;
    width: 100vw;
 }
+.one-line {
+    display: inline; /* Ensures each pair stays on the same line */
+
+}
+.bug-description {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin-bottom: 10px; /* Optional: Adds space between bug descriptions */
+}
+
+.bug-description p.bug-label {
+
+    margin-right: 10px;
+    display: inline;
+}
+
+.bug-description .description-text {
+    /* Ensures text stays on the same line */
+    max-width: calc(100% - 80px); /* Adjust to leave space for label and spacing */
+    white-space: normal; /* Allows text to wrap */
+    line-height: 1.5;
+    display: inline;/* Optional: Adjusts line height for readability */
+}
+
+.bug-description .description-text span {
+    display: inline-block; /* Ensures each chunk of text remains inline */
+}
+
 
 header{
     font-size: x-large;
@@ -45,7 +72,7 @@ footer {
 
   .split div {
     flex: 1;
-    padding: 10px;
+
   }
 
   /* Car card styling */

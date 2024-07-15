@@ -32,6 +32,7 @@
                 <input type="password" class="form-control" id="password" name="password"/>
             </div>
 
+
             <div th:if="${loginError}" class="alert alert-danger" th:text="#{login.error.message}">
                 Invalid username or password. Please try again.
             </div>
@@ -47,7 +48,7 @@
     </div>
 </main>
 <footer>
-    <h6 class="footer-text" th:text="#{login.footer}">All rights reserved™</h6>
+    <footer th:replace="fragments/commons::footer"></footer>
 </footer>
 </body>
 </html>
