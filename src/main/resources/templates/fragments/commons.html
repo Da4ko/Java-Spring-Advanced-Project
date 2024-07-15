@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
         .logo-tuzar-cars {
-            color: white;           /* Makes the text white */
-            font-weight: bold;      /* Makes the text bold */
-            text-decoration: none;  /* Removes the underline */
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
         }
 
         .logo-tuzar-cars:hover {
-            color: white;           /* Ensures the color remains white on hover */
-            text-decoration: none;  /* Ensures no underline on hover */
+            color: white;
+            text-decoration: none;
         }
     </style>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Additional stylesheets -->
 </head>
 <body>
 <header th:fragment="head">
@@ -24,18 +26,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a sec:authorize="!isAuthenticated()" class="navbar-brand nav-link" target="_blank" href="">
-                <a class="logo-tuzar-cars" href="/">Tuzar Cars | </a>
+            <a sec:authorize="!isAuthenticated()" class="navbar-brand nav-link" href="/">
+                <span class="logo-tuzar-cars">Tuzar Cars | </span>
             </a>
-            <a sec:authorize="isAuthenticated()" class="navbar-brand nav-link" target="_blank" href="">
-                <a class="logo-tuzar-cars" href="/home">Tuzar Cars | </a>
+            <a sec:authorize="isAuthenticated()" class="navbar-brand nav-link" href="/home">
+                <span class="logo-tuzar-cars">Tuzar Cars | </span>
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
                     aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarExample01">
-
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active" sec:authorize="isAuthenticated()">
                         <a class="nav-link" href="/porsche/porsche-cars-home">Porsche | </a>
@@ -50,26 +51,23 @@
                         <a class="nav-link" href="/bmw/bmw-cars-home">BMW</a>
                     </li>
                 </ul>
-
                 <ul class="navbar-nav list-inline">
-                    <!-- Icons -->
-
                     <li class="nav-item active" sec:authorize="isAuthenticated()">
-                        <form th:action="@{/users/logout}" method="post" >
-                            <input  type="submit" class="nav-link" value="Logout |" />
+                        <form th:action="@{/users/logout}" method="post">
+                            <input type="submit" class="nav-link" th:value="#{navbar.logout}" />
                         </form>
                     </li>
                     <li class="nav-item active" sec:authorize="!isAuthenticated()">
-                        <a class="nav-link" href="/users/login">Login | </a>
+                        <a class="nav-link" href="/users/login" th:text="#{navbar.login}">Login | </a>
                     </li>
                     <li class="nav-item active" sec:authorize="!isAuthenticated()">
-                        <a class="nav-link" href="/users/register">Register | </a>
+                        <a class="nav-link" href="/users/register" th:text="#{navbar.register}">Register | </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/about-us">About Us | </a>
+                        <a class="nav-link" href="/about-us" th:text="#{navbar.aboutUs}">About Us | </a>
                     </li>
-                    <li  sec:authorize="hasRole('admin')" class="nav-item active">
-                        <a class="nav-link" href="/bugs/reported-bugs">Bugs</a>
+                    <li class="nav-item active" sec:authorize="hasRole('admin')">
+                        <a class="nav-link" href="/bugs/reported-bugs" th:text="#{navbar.bugs}">Bugs</a>
                     </li>
                 </ul>
             </div>

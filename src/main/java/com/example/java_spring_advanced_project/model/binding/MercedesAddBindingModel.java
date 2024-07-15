@@ -1,6 +1,5 @@
 package com.example.java_spring_advanced_project.model.binding;
 
-import com.example.java_spring_advanced_project.model.entity.MercedesModel;
 import com.example.java_spring_advanced_project.model.entity.enums.*;
 import jakarta.validation.constraints.*;
 
@@ -19,7 +18,7 @@ public class MercedesAddBindingModel {
     private double price;
     private String description;
 
-    @NotNull(message = "You must select model")
+    @NotNull(message = "{mercedes.validation.model.notNull}")
     public MercedesModelsEnum getMercedesModel() {
         return mercedesModel;
     }
@@ -27,8 +26,9 @@ public class MercedesAddBindingModel {
     public void setMercedesModel(MercedesModelsEnum mercedesModel) {
         this.mercedesModel = mercedesModel;
     }
-    @Positive(message = "horsepower cannot be negative or zero")
-    @NotNull(message = "Horsepower cannot be empty")
+
+    @Positive(message = "{mercedes.validation.horsePower.positive}")
+    @NotNull(message = "{mercedes.validation.horsePower.notNull}")
     public int getHorsePower() {
         return horsePower;
     }
@@ -36,8 +36,9 @@ public class MercedesAddBindingModel {
     public void setHorsePower(int horsePower) {
         this.horsePower = horsePower;
     }
-    @NotNull(message = "The car must have image")
-    @Size(min = 10, max=50000, message = "Image must be at least 10 characters")
+
+    @NotNull(message = "{mercedes.validation.imageUrl.notNull}")
+    @Size(min = 10, max = 50000, message = "{mercedes.validation.imageUrl.size}")
     public String getImageUrl() {
         return imageUrl;
     }
@@ -45,8 +46,9 @@ public class MercedesAddBindingModel {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-    @NotNull(message = "Release date cannot be null!")
-    @PastOrPresent(message = "The date cannot be in the future")
+
+    @NotNull(message = "{mercedes.validation.releaseDate.notNull}")
+    @PastOrPresent(message = "{mercedes.validation.releaseDate.pastOrPresent}")
     public LocalDate getReleaseDate() {
         return releaseDate;
     }
@@ -54,7 +56,8 @@ public class MercedesAddBindingModel {
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
-    @NotNull(message = "You must select category")
+
+    @NotNull(message = "{mercedes.validation.category.notNull}")
     public CategoryName getCategoryName() {
         return categoryName;
     }
@@ -62,7 +65,8 @@ public class MercedesAddBindingModel {
     public void setCategoryName(CategoryName categoryName) {
         this.categoryName = categoryName;
     }
-    @NotNull(message = "You must select engine type")
+
+    @NotNull(message = "{mercedes.validation.engineType.notNull}")
     public EngineTypeEnum getEngineType() {
         return engineType;
     }
@@ -70,7 +74,8 @@ public class MercedesAddBindingModel {
     public void setEngineType(EngineTypeEnum engineType) {
         this.engineType = engineType;
     }
-    @NotNull(message = "You must select transmission type")
+
+    @NotNull(message = "{mercedes.validation.transmission.notNull}")
     public TransmissionType getTransmission() {
         return transmission;
     }
@@ -78,8 +83,9 @@ public class MercedesAddBindingModel {
     public void setTransmission(TransmissionType transmission) {
         this.transmission = transmission;
     }
-    @Positive(message = "kilometers cannot be negative or zero")
-    @NotNull(message = "You must enter the kilometers")
+
+    @Positive(message = "{mercedes.validation.kilometers.positive}")
+    @NotNull(message = "{mercedes.validation.kilometers.notNull}")
     public int getKilometers() {
         return kilometers;
     }
@@ -87,7 +93,8 @@ public class MercedesAddBindingModel {
     public void setKilometers(int kilometers) {
         this.kilometers = kilometers;
     }
-    @NotNull(message = "You must select currency for your price")
+
+    @NotNull(message = "{mercedes.validation.currencyName.notNull}")
     public CurrencyName getCurrencyName() {
         return currencyName;
     }
@@ -95,8 +102,9 @@ public class MercedesAddBindingModel {
     public void setCurrencyName(CurrencyName currencyName) {
         this.currencyName = currencyName;
     }
-    @Positive(message = "kilometers cannot be  or zero")
-    @NotNull(message = "You must enter the price")
+
+    @Positive(message = "{mercedes.validation.price.positive}")
+    @NotNull(message = "{mercedes.validation.price.notNull}")
     public double getPrice() {
         return price;
     }
@@ -104,8 +112,9 @@ public class MercedesAddBindingModel {
     public void setPrice(double price) {
         this.price = price;
     }
-    @NotNull(message = "You must enter the description")
-    @Size(min = 2, max=500, message = "Description must be between 2 and 500 characters")
+
+    @NotNull(message = "{mercedes.validation.description.notNull}")
+    @Size(min = 2, max = 500, message = "{mercedes.validation.description.size}")
     public String getDescription() {
         return description;
     }
