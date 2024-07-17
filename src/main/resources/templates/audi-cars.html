@@ -5,107 +5,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audi</title>
+    <title th:text="#{audi.title}">Audi</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/cars.css">
     <style>
         /* Apply overflow to enable scrolling */
-        
+
     </style>
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-
-        <div class="brown-beige-theme">
-            <div class = "row-menu">
-            <h2>Audi cars </h2>
-            <a id = "add-car" type="submit" class="btn btn-success  mb-3" href="/audi/add-audi">Add Audi</a>
-            <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/home">Return to home</a>
-           </div>
-            <img class = "logo-img"src="" alt="">
-            <div class="split">
-              <div class = "your-cars">
-                <h3>Your Cars</h3>
+<main>
+    <div class="brown-beige-theme">
+        <div class="row-menu">
+            <h2 th:text="#{audi.audiCars}">Audi cars</h2>
+            <a id="add-car" type="submit" class="btn btn-success mb-3" href="/audi/add-audi" th:text="#{audi.addAudi}">Add Audi</a>
+            <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" th:text="#{audi.returnToHome}">Return to home</a>
+        </div>
+        <img class="logo-img" src="" alt="">
+        <div class="split">
+            <div class="your-cars">
+                <h3 th:text="#{audi.yourCars}">Your Cars</h3>
                 <div class="user-cars">
-
-                  <!-- Example car offers -->
-                  <div th:each="o : ${homeAudiCarsDto.getMyAudiCars()}" th:object="${o}" class="car-card user-car">
-
-                    <p>Model: <label th:text="|*{audiModel}|">A8</label></p>
-
-                    <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
-
-                    <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
-
-                    <p>Category: <label th:text="|*{category}|">sedan</label></p>
-
-                    <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
-
-                    <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
-
-                    <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
-
-                     <p>Bought for: <label th:text="|*{boughtFor} *{currencyName}|"> 10000 Euro</label></p>
-
-                    <p>Description: <label th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
-
-
-                    <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Audi-Img">
-
-                      <form action="" th:method="delete" th:action="@{/audi/{uuid}(uuid=${o.id})}">
-                          <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
-                      </form>
-
+                    <!-- Example car offers -->
+                    <div th:each="o : ${homeAudiCarsDto.getMyAudiCars()}" th:object="${o}" class="car-card user-car">
+                        <p><span th:text="#{audi.model}">Model</span>: <label th:text="|*{audiModel}|">A8</label></p>
+                        <p><span th:text="#{audi.horsepower}">Horsepower</span>: <label th:text="|*{horsePower}|">680</label></p>
+                        <p><span th:text="#{audi.releaseDate}">Release Date</span>: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+                        <p><span th:text="#{audi.category}">Category</span>: <label th:text="|*{category}|">sedan</label></p>
+                        <p><span th:text="#{audi.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
+                        <p><span th:text="#{audi.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
+                        <p><span th:text="#{audi.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
+                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{audi.description}">Description</span>: <label class="row-new" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Audi-Img">
+                        <form action="" th:method="delete" th:action="@{/audi/{uuid}(uuid=${o.id})}">
+                            <button id="delete" type="submit" class="btn btn-danger mb-3" th:text="#{audi.delete}">Delete</button>
+                        </form>
+                    </div>
                 </div>
-                </div>
-
-
-
-              </div>
-              <div class = "other-cars">
-                <h3>Other Users' Cars</h3>
-                <div class="other-user-cars">
-                  <!-- Example car offers -->
-                  <div th:each="o : ${homeAudiCarsDto.getOthersAudiCars()}" th:object="${o}"  class="car-card other-user-car">
-
-                    <p>Model: <label th:text="|*{audiModel}|" >A7</label></p>
-
-                    <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
-
-                    <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
-
-                    <p>Category: <label th:text="|*{category}|">sedan</label></p>
-
-                    <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
-
-                    <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
-
-                    <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
-
-                      <p>Bought for: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
-
-                    <p>Description: <label th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
-
-                      <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi-Img">
-
-                      <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
-
-                      <form  sec:authorize="hasRole('admin')"  th:method="delete" th:action="@{/audi/{uuid}(uuid=${o.id})}">
-                          <button id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
-                      </form>
-                  </div>
-
-
-
-                  <!-- Add more car cards here -->
-                </div>
-              </div>
             </div>
-          </div>
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-       </footer>
+            <div class="other-cars">
+                <h3 th:text="#{audi.otherUsersCars}">Other Users' Cars</h3>
+                <div class="other-user-cars">
+                    <!-- Example car offers -->
+                    <div th:each="o : ${homeAudiCarsDto.getOthersAudiCars()}" th:object="${o}" class="car-card other-user-car">
+                        <p><span th:text="#{audi.model}">Model</span>: <label th:text="|*{audiModel}|">A7</label></p>
+                        <p><span th:text="#{audi.horsepower}">Horsepower</span>: <label th:text="|*{horsePower}|">680</label></p>
+                        <p><span th:text="#{audi.releaseDate}">Release Date</span>: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+                        <p><span th:text="#{audi.category}">Category</span>: <label th:text="|*{category}|">sedan</label></p>
+                        <p><span th:text="#{audi.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
+                        <p><span th:text="#{audi.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
+                        <p><span th:text="#{audi.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
+                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{audi.description}">Description</span>: <label class="row-new1" th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="*{imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi-Img">
+                        <p><span th:text="#{audi.owner}">Owner</span>: <span th:text="|*{ownerUsername}|">Tuzar1</span></p>
+                        <form sec:authorize="hasRole('admin')" th:method="delete" th:action="@{/audi/{uuid}(uuid=${o.id})}">
+                            <button id="delete1" type="submit" class="btn btn-danger mb-3" th:text="#{audi.delete}">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <h6 class="footer-text" th:text="#{audi.allRightsReserved}">All rights reserved™</h6>
+</footer>
 </body>
 </html>

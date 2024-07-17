@@ -1,109 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercedes</title>
+    <title th:text="#{mercedes.title}">Mercedes</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/cars.css">
     <style>
         /* Apply overflow to enable scrolling */
-        
+
     </style>
 </head>
 <body>
 <header th:replace="fragments/commons::head"></header>
-    <main>
-
-        <div class="brown-beige-theme">
-            <div class = "row-menu">
-            <h2>Mercedes cars </h2>
-            <a id = "add-car" type="submit" class="btn btn-success  mb-3" href="/mercedes/add-mercedes">Add Mercedes</a>
-                <a id = "back-to-home" type="submit" class="btn btn-success  mb-3" href="/home">Return to home</a>
-            
-           </div>
-            <img class = "logo-img"src="" alt="">
-            <div class="split">
-              <div class = "your-cars">
-                <h3>Your Cars</h3>
+<main>
+    <div class="brown-beige-theme">
+        <div class="row-menu">
+            <h2 th:text="#{mercedes.heading}">Mercedes cars</h2>
+            <a id="add-car" class="btn btn-success mb-3" th:text="#{mercedes.add}" href="/mercedes/add-mercedes">Add Mercedes</a>
+            <a id="back-to-home" class="btn btn-success mb-3" th:text="#{mercedes.return}" href="/home">Return to home</a>
+        </div>
+        <img class="logo-img" src="" alt="">
+        <div class="split">
+            <div class="your-cars">
+                <h3 th:text="#{mercedes.yourCars}">Your Cars</h3>
                 <div class="user-cars">
-                  <!-- Example car offers -->
+                    <!-- Example car offers -->
                     <div th:each="o : ${homeMercedesCarsDto.getMyMercedesCars()}" th:object="${o}" class="car-card user-car">
-
-                        <p>Model: <label th:text="|*{mercedesModel}|">A8</label></p>
-
-                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
-
-                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
-
-                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
-
-                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
-
-                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
-
-                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
-
-                        <p>Bought for: <label th:text="|*{boughtFor} *{currencyName}|"> 10000 Euro</label></p>
-
-                        <p>Description: <label th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
-
-
-                        <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Mercedes-Img">
-
+                        <p><span th:text="#{mercedes.model}">Model</span>: <label th:text="${o.mercedesModel}">A8</label></p>
+                        <p><span th:text="#{mercedes.horsepower}">Horsepower</span>: <label th:text="${o.horsePower}">680</label></p>
+                        <p><span th:text="#{mercedes.releaseDate}">Release Date</span>: <label th:text="${o.releaseDate}">20/3/2023</label></p>
+                        <p><span th:text="#{mercedes.category}">Category</span>: <label th:text="${o.category}">sedan</label></p>
+                        <p><span th:text="#{mercedes.engineType}">Engine Type</span>: <label th:text="${o.engine}">gasoline</label></p>
+                        <p><span th:text="#{mercedes.transmission}">Transmission</span>: <label th:text="${o.transmission}">manual</label></p>
+                        <p><span th:text="#{mercedes.kilometers}">Kilometers</span>: <label th:text="${o.kilometers}">10000</label></p>
+                        <p><span th:text="#{mercedes.boughtFor}">Bought for</span>: <label th:text="${o.boughtFor} + ${currencyName}">10000 Euro</label></p>
+                        <p><span th:text="#{mercedes.description}">Description</span>: <label class="row-new" th:text="${o.description}">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="${o.imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Mercedes-Img">
                         <form action="" th:method="delete" th:action="@{/mercedes/{uuid}(uuid=${o.id})}">
-                            <button id="delete" type="submit" class="btn btn-danger  mb-3">Delete</button>
+                            <button id="delete" type="submit" class="btn btn-danger mb-3" th:text="#{mercedes.delete}">Delete</button>
                         </form>
                     </div>
-                  <!-- Add more car cards here -->
+                    <!-- Add more car cards here -->
                 </div>
-              </div>
-              <div class = "other-cars">
-                <h3>Other Users' Cars</h3>
-                <div class="other-user-cars">
-                  <!-- Example car offers -->
-
-
-                    <div th:each="o : ${homeMercedesCarsDto.getOthersMercedesCars()}" th:object="${o}"  class="car-card other-user-car">
-
-                        <p>Model: <label th:text="|*{mercedesModel}|" >A7</label></p>
-
-                        <p>Horsepower: <label th:text="|*{horsePower}|">680</label></p>
-
-                        <p>Release Date: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
-
-                        <p>Category: <label th:text="|*{category}|">sedan</label></p>
-
-                        <p>Engine Type: <label th:text="|*{engine}|">gasoline</label></p>
-
-                        <p>Transmission: <label th:text="|*{transmission}|">manual</label></p>
-
-                        <p>Kilometers: <label th:text="|*{kilometers}|">10000</label></p>
-
-                        <p>Bought for: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
-
-                        <p>Description: <label th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
-
-                        <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Mercedes-Img">
-
-                        <p>Owner: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
-
-                        <form  sec:authorize="hasRole('admin')"  th:method="delete" th:action="@{/mercedes/{uuid}(uuid=${o.id})}">
-                            <button id="delete1" type="submit" class="btn btn-danger  mb-3">Delete</button>
-                        </form>
-                    </div>
-
-
-                  <!-- Add more car cards here -->
-                </div>
-              </div>
             </div>
-          </div>
-    </main>
-    <footer>
-      <h6 class="footer-text"> All rights reserved™</h6>
-       </footer>
+            <div class="other-cars">
+                <h3 th:text="#{mercedes.otherCars}">Other Users' Cars</h3>
+                <div class="other-user-cars">
+                    <!-- Example car offers -->
+                    <div th:each="o : ${homeMercedesCarsDto.getOthersMercedesCars()}" th:object="${o}" class="car-card other-user-car">
+                        <p><span th:text="#{mercedes.model}">Model</span>: <label th:text="${o.mercedesModel}">A7</label></p>
+                        <p><span th:text="#{mercedes.horsepower}">Horsepower</span>: <label th:text="${o.horsePower}">680</label></p>
+                        <p><span th:text="#{mercedes.releaseDate}">Release Date</span>: <label th:text="${o.releaseDate}">20/3/2023</label></p>
+                        <p><span th:text="#{mercedes.category}">Category</span>: <label th:text="${o.category}">sedan</label></p>
+                        <p><span th:text="#{mercedes.engineType}">Engine Type</span>: <label th:text="${o.engine}">gasoline</label></p>
+                        <p><span th:text="#{mercedes.transmission}">Transmission</span>: <label th:text="${o.transmission}">manual</label></p>
+                        <p><span th:text="#{mercedes.kilometers}">Kilometers</span>: <label th:text="${o.kilometers}">10000</label></p>
+                        <p><span th:text="#{mercedes.boughtFor}">Bought for</span>: <label th:text="${o.boughtFor} + ${currencyName}">10000 Euro</label></p>
+                        <p><span th:text="#{mercedes.description}">Description</span>: <label class="row-new1" th:text="${o.description}">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="${o.imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Mercedes-Img">
+                        <p><span th:text="#{mercedes.owner}">Owner</span>: <label th:text="${o.ownerUsername}">Tuzar1</label></p>
+                        <form sec:authorize="hasRole('admin')" th:method="delete" th:action="@{/mercedes/{uuid}(uuid=${o.id})}">
+                            <button id="delete1" type="submit" class="btn btn-danger mb-3" th:text="#{mercedes.delete}">Delete</button>
+                        </form>
+                    </div>
+                    <!-- Add more car cards here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <h6 class="footer-text" th:text="#{mercedes.footer}">All rights reserved™</h6>
+</footer>
 </body>
 </html>

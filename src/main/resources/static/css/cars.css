@@ -18,6 +18,7 @@ main{
     
 }
 
+
 footer {
     color: white;
     margin-left: 45%;
@@ -118,4 +119,15 @@ footer {
     border-width: 2px;
     border-radius: 10%;
     margin-top: 1%;
+}
+/*----------------------*/
+.row-new{
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
+}
+.row-new1{
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
 }
