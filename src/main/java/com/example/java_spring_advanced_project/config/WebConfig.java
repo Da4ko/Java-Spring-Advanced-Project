@@ -1,6 +1,7 @@
 package com.example.java_spring_advanced_project.config;
 
 import org.springframework.context.MessageSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -23,7 +24,7 @@ public class WebConfig {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.GERMAN); // Set default locale
+        localeResolver.setDefaultLocale(Locale.ENGLISH); // Set default locale
         return localeResolver;
     }
 }

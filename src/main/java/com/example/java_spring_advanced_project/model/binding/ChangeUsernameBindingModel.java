@@ -1,6 +1,6 @@
 package com.example.java_spring_advanced_project.model.binding;
 
-import com.example.java_spring_advanced_project.validation.UniqueUsername;
+import com.example.java_spring_advanced_project.validation.anotations.UniqueUsername;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 

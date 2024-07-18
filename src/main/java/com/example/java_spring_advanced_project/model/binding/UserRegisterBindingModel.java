@@ -1,12 +1,16 @@
 package com.example.java_spring_advanced_project.model.binding;
 
+import com.example.java_spring_advanced_project.validation.anotations.UniqueEmail;
+import com.example.java_spring_advanced_project.validation.anotations.UniqueUsername;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
 
+    @UniqueUsername(message = "This username has already been taken")
     private String username;
+    @UniqueEmail(message = "You cannot create two accounts with one email")
     private String email;
     private String password;
     private String confirmPassword;

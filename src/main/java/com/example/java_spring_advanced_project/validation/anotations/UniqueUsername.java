@@ -1,5 +1,6 @@
-package com.example.java_spring_advanced_project.validation;
+package com.example.java_spring_advanced_project.validation.anotations;
 
+import com.example.java_spring_advanced_project.validation.validators.UniqueUsernameValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 

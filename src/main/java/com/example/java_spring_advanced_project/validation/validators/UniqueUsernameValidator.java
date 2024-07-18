@@ -1,6 +1,7 @@
-package com.example.java_spring_advanced_project.validation;
+package com.example.java_spring_advanced_project.validation.validators;
 
 import com.example.java_spring_advanced_project.repository.UserRepository;
+import com.example.java_spring_advanced_project.validation.anotations.UniqueUsername;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
