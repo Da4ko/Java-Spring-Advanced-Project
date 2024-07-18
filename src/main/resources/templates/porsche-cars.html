@@ -29,16 +29,16 @@
                 <div class="user-cars">
                     <!-- Example car offers -->
                     <div th:each="o : ${homePorscheCarsDto.getMyPorscheCars()}" th:object="${o}" class="car-card user-car">
-                        <p><span th:text="#{porsche.model}">Model</span>: <label th:text="${o.porscheModel}">A8</label></p>
-                        <p><span th:text="#{porsche.horsepower}">Horsepower</span>: <label th:text="${o.horsePower}">680</label></p>
-                        <p><span th:text="#{porsche.releaseDate}">Release Date</span>: <label th:text="${o.releaseDate}">20/3/2023</label></p>
-                        <p><span th:text="#{porsche.category}">Category</span>: <label th:text="${o.category}">sedan</label></p>
-                        <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="${o.engine}">gasoline</label></p>
-                        <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="${o.transmission}">manual</label></p>
-                        <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="${o.kilometers}">10000</label></p>
-                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="${o.boughtFor} ${o.currencyName}">10000 Euro</label></p>
-                        <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new" th:text="${o.description}">A high-performance sports car with breathtaking acceleration.</label></p>
-                        <img class="car-image" th:src="${o.imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Porsche-Img">
+                        <p><span th:text="#{porsche.model}">Model</span>: <label th:text="*{porscheModel}">A8</label></p>
+                        <p><span th:text="#{porsche.horsepower}">Horsepower</span>: <label th:text="*{horsePower}">680</label></p>
+                        <p><span th:text="#{porsche.releaseDate}">Release Date</span>: <label th:text="*{releaseDate}">20/3/2023</label></p>
+                        <p><span th:text="#{porsche.category}">Category</span>: <label th:text="*{category}">sedan</label></p>
+                        <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="*{engine}">gasoline</label></p>
+                        <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="*{transmission}">manual</label></p>
+                        <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="*{kilometers}">10000</label></p>
+                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Porsche-Img">
                         <form action="" th:method="delete" th:action="@{/porsche/{uuid}(uuid=${o.id})}">
                             <button id="delete" type="submit" class="btn btn-danger mb-3" th:text="#{porsche.delete}">Delete</button>
                         </form>
@@ -51,17 +51,17 @@
                 <div class="other-user-cars">
                     <!-- Example car offers -->
                     <div th:each="o : ${homePorscheCarsDto.getOthersPorscheCars()}" th:object="${o}" class="car-card other-user-car">
-                        <p><span th:text="#{porsche.model}">Model</span>: <label th:text="${o.porscheModel}">A7</label></p>
-                        <p><span th:text="#{porsche.horsepower}">Horsepower</span>: <label th:text="${o.horsePower}">680</label></p>
-                        <p><span th:text="#{porsche.releaseDate}">Release Date</span>: <label th:text="${o.releaseDate}">20/3/2023</label></p>
-                        <p><span th:text="#{porsche.category}">Category</span>: <label th:text="${o.category}">sedan</label></p>
-                        <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="${o.engine}">gasoline</label></p>
-                        <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="${o.transmission}">manual</label></p>
-                        <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="${o.kilometers}">10000</label></p>
-                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="${o.boughtFor} ${o.currencyName}">10000 Euro</label></p>
-                        <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new1" th:text="${o.description}">A high-performance sports car with breathtaking acceleration.</label></p>
-                        <img class="car-image" th:src="${o.imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Porsche-Img">
-                        <p><span th:text="#{porsche.owner}">Owner</span>: <label th:text="${o.ownerUsername}">Tuzar1</label></p>
+                        <p><span th:text="#{porsche.model}">Model</span>: <label th:text="*{porscheModel}">A7</label></p>
+                        <p><span th:text="#{porsche.horsepower}">Horsepower</span>: <label th:text="*{horsePower}">680</label></p>
+                        <p><span th:text="#{porsche.releaseDate}">Release Date</span>: <label th:text="*{releaseDate}">20/3/2023</label></p>
+                        <p><span th:text="#{porsche.category}">Category</span>: <label th:text="*{category}">sedan</label></p>
+                        <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="*{engine}">gasoline</label></p>
+                        <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="*{transmission}">manual</label></p>
+                        <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="*{kilometers}">10000</label></p>
+                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new1" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
+                        <img class="car-image" th:src="*{imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Porsche-Img">
+                        <p><span th:text="#{porsche.owner}">Owner</span>: <label th:text="*{ownerUsername}">Tuzar1</label></p>
                         <form sec:authorize="hasRole('admin')" th:method="delete" th:action="@{/porsche/{uuid}(uuid=${o.id})}">
                             <button id="delete1" type="submit" class="btn btn-danger mb-3" th:text="#{porsche.delete}">Delete</button>
                         </form>

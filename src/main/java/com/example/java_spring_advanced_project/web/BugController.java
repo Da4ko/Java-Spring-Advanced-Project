@@ -2,15 +2,23 @@ package com.example.java_spring_advanced_project.web;
 
 
 import com.example.java_spring_advanced_project.model.binding.ReportABugBindingModel;
+import com.example.java_spring_advanced_project.model.dto.Bugs.BugDto;
 import com.example.java_spring_advanced_project.model.dto.HomeBugsDto;
 import com.example.java_spring_advanced_project.service.BugsService;
 import jakarta.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/bugs")
@@ -19,10 +27,12 @@ public class BugController {
 
     private final BugsService bugsService;
 
+
+
     public BugController(BugsService bugsService) {
         this.bugsService = bugsService;
-    }
 
+    }
     @GetMapping("/reported-bugs")
     public ModelAndView reportedBugsHome() {
 
@@ -32,6 +42,8 @@ public class BugController {
 
         return modelAndView;
     }
+
+
     @GetMapping("/add-report")
     public ModelAndView addingBug(Model model){
         if(!model.containsAttribute("reportABugBindingModel")){

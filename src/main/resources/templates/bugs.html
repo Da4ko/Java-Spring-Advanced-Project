@@ -24,7 +24,7 @@
                     <p class="one-line" th:text="#{bugs.reported.by}">Reported By: </p>
                     <span class="one-line" th:text="${bug.reportedBy}">User123</span>
                     <br/>
-                        <p></p>
+                    <p></p>
                     <div class="bug-description">
                         <p class="bug-label" th:text="#{bugs.description}">Description: </p>
                         <div class="description-text" th:text="${bug.description}">Description goes here</div>
@@ -43,21 +43,6 @@
     <h6 class="footer-text">All rights reserved™</h6>
 </footer>
 
-<!-- JavaScript to split text into chunks of 30 characters -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var descriptionDivs = document.querySelectorAll('.description-text');
-        descriptionDivs.forEach(function(descriptionDiv) {
-            var text = descriptionDiv.textContent.trim();
-            var chunks = [];
-            var chunkSize = 30;
-            for (var i = 0; i < text.length; i += chunkSize) {
-                chunks.push('<span>' + text.slice(i, i + chunkSize) + '</span>');
-            }
-            descriptionDiv.innerHTML = chunks.join('');
-        });
-    });
-</script>
 
 </body>
 </html>

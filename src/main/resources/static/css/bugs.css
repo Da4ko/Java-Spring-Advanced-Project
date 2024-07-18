@@ -28,6 +28,10 @@ body{
     white-space: normal; /* Allows text to wrap */
     line-height: 1.5;
     display: inline;/* Optional: Adjusts line height for readability */
+
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
 }
 
 .bug-description .description-text span {

@@ -52,6 +52,7 @@
                 <div class="other-user-cars">
                     <!-- Example car offers -->
                     <div th:each="o : ${homeBmwCarsDto.getOthersBmwCars()}" th:object="${o}" class="car-card other-user-car">
+
                         <p><span th:text="#{bmw.model}">Model</span>: <label th:text="|*{bmwModel}|" >A7</label></p>
                         <p><span th:text="#{bmw.horsepower}">Horsepower</span>: <label th:text="|*{horsePower}|">680</label></p>
                         <p><span th:text="#{bmw.releaseDate}">Release Date</span>: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
@@ -63,6 +64,7 @@
                         <p><span th:text="#{bmw.description}">Description</span>: <label class="row-new1" th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="BMW-Img">
                         <p><span th:text="#{bmw.owner}">Owner</span>: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
+
                         <form sec:authorize="hasRole('admin')" th:method="delete" th:action="@{/bmw/{uuid}(uuid=${o.id})}">
                             <button id="delete1" type="submit" class="btn btn-danger mb-3" th:text="#{bmw.delete}">Delete</button>
                         </form>
