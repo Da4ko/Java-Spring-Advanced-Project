@@ -36,7 +36,11 @@
                         <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="*{engine}">gasoline</label></p>
                         <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="*{transmission}">manual</label></p>
                         <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="*{kilometers}">10000</label></p>
-                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p>
+                            <span th:text="#{porsche.boughtFor}">Bought for</span>:
+                            <label th:text="|*{#numbers.formatDecimal(boughtFor, 0, 'NONE', 0, 'NONE')} *{currencyName}|">10000 Euro</label>
+                        </p>
+
                         <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Porsche-Img">
                         <form action="" th:method="delete" th:action="@{/porsche/{uuid}(uuid=${o.id})}">
@@ -58,7 +62,11 @@
                         <p><span th:text="#{porsche.engineType}">Engine Type</span>: <label th:text="*{engine}">gasoline</label></p>
                         <p><span th:text="#{porsche.transmission}">Transmission</span>: <label th:text="*{transmission}">manual</label></p>
                         <p><span th:text="#{porsche.kilometers}">Kilometers</span>: <label th:text="*{kilometers}">10000</label></p>
-                        <p><span th:text="#{porsche.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p>
+                            <span th:text="#{porsche.boughtFor}">Bought for</span>:
+                            <label th:text="|*{#numbers.formatDecimal(boughtFor, 0, 'NONE', 0, 'NONE')} *{currencyName}|">10000 Euro</label>
+                        </p>
+
                         <p><span th:text="#{porsche.description}">Description</span>: <label class="row-new1" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Porsche-Img">
                         <p><span th:text="#{porsche.owner}">Owner</span>: <label th:text="*{ownerUsername}">Tuzar1</label></p>

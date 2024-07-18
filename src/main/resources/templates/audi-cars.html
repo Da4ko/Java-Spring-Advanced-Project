@@ -36,7 +36,10 @@
                         <p><span th:text="#{audi.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
                         <p><span th:text="#{audi.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
                         <p><span th:text="#{audi.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
-                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p>
+                            <span th:text="#{audi.boughtFor}">Bought for</span>:
+                            <label th:text="|*{#numbers.formatDecimal(boughtFor, 0, 'NONE', 0, 'NONE')} *{currencyName}|">10000 Euro</label>
+                        </p>
                         <p><span th:text="#{audi.description}">Description</span>: <label class="row-new" th:text="*{description}">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}" src="https://hips.hearstapps.com/hmg-prod/images/2024-audi-a8-102-64b6b2b1ae524.jpg?crop=0.556xw:0.626xh;0.231xw,0.249xh&resize=768:*" alt="Audi-Img">
                         <form action="" th:method="delete" th:action="@{/audi/{uuid}(uuid=${o.id})}">
@@ -61,7 +64,10 @@
                         <p><span th:text="#{audi.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
                         <p><span th:text="#{audi.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
                         <p><span th:text="#{audi.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
-                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
+                        <p>
+                            <span th:text="#{audi.boughtFor}">Bought for</span>:
+                            <label th:text="|*{#numbers.formatDecimal(boughtFor, 0, 'NONE', 0, 'NONE')} *{currencyName}|">10000 Euro</label>
+                        </p>
                         <p><span th:text="#{audi.description}">Description</span>: <label class="row-new1" th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi-Img">
                         <p><span th:text="#{audi.owner}">Owner</span>: <span th:text="|*{ownerUsername}|">Tuzar1</span></p>
