@@ -50,14 +50,18 @@
                 <div class="other-user-cars">
                     <!-- Example car offers -->
                     <div th:each="o : ${homeAudiCarsDto.getOthersAudiCars()}" th:object="${o}" class="car-card other-user-car">
+
                         <p><span th:text="#{audi.model}">Model</span>: <label th:text="|*{audiModel}|">A7</label></p>
+
                         <p><span th:text="#{audi.horsepower}">Horsepower</span>: <label th:text="|*{horsePower}|">680</label></p>
+
                         <p><span th:text="#{audi.releaseDate}">Release Date</span>: <label th:text="|*{releaseDate}|">20/3/2023</label></p>
+
                         <p><span th:text="#{audi.category}">Category</span>: <label th:text="|*{category}|">sedan</label></p>
                         <p><span th:text="#{audi.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
                         <p><span th:text="#{audi.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
                         <p><span th:text="#{audi.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
-                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{audi.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
                         <p><span th:text="#{audi.description}">Description</span>: <label class="row-new1" th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}" src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="Audi-Img">
                         <p><span th:text="#{audi.owner}">Owner</span>: <span th:text="|*{ownerUsername}|">Tuzar1</span></p>

@@ -59,7 +59,7 @@
                         <p><span th:text="#{bmw.engineType}">Engine Type</span>: <label th:text="|*{engine}|">gasoline</label></p>
                         <p><span th:text="#{bmw.transmission}">Transmission</span>: <label th:text="|*{transmission}|">manual</label></p>
                         <p><span th:text="#{bmw.kilometers}">Kilometers</span>: <label th:text="|*{kilometers}|">10000</label></p>
-                        <p><span th:text="#{bmw.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} + *{currencyName}|">10000 Euro</label></p>
+                        <p><span th:text="#{bmw.boughtFor}">Bought for</span>: <label th:text="|*{boughtFor} *{currencyName}|">10000 Euro</label></p>
                         <p><span th:text="#{bmw.description}">Description</span>: <label class="row-new1" th:text="|*{description}|">A high-performance sports car with breathtaking acceleration.</label></p>
                         <img class="car-image" th:src="*{imageUrl}"  src="https://images.cars.com/cldstatic/wp-content/uploads/audi-rs-7-2024-front-three-quarter-oem.jpg?w=828" alt="BMW-Img">
                         <p><span th:text="#{bmw.owner}">Owner</span>: <label th:text="|*{ownerUsername}|">Tuzar1</label></p>
