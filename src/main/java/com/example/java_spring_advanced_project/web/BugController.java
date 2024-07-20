@@ -7,10 +7,7 @@ import com.example.java_spring_advanced_project.model.dto.HomeBugsDto;
 import com.example.java_spring_advanced_project.service.BugsService;
 import jakarta.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -74,7 +71,7 @@ public class BugController {
         return "thank-you-for-the-report";
     }
     @DeleteMapping("/{uuid}")
-    public String delete(@PathVariable("uuid") String uuid, Model model){
+    public String delete(@PathVariable("uuid") String uuid){
 
         bugsService.deleteBug(uuid);
 

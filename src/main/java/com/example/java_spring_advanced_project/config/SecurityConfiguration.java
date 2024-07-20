@@ -26,11 +26,11 @@ public class SecurityConfiguration {
                         .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home"
                         , "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home"
                         ,"/audi/add-audi", "/bmw/add-bmw", "/porsche/add-porsche"
-                        , "/mercedes/add-mercedes", "/bugs/add-report", "/bugs//thank-you").hasRole(RoleEnum.user.name())
+                        , "/mercedes/add-mercedes", "/bugs/add-report", "/bugs//thank-you", "/apply/make-application").hasRole(RoleEnum.user.name())
 
                         .requestMatchers("/error").permitAll()
 
-                        .requestMatchers("bugs/reported-bugs").hasRole(RoleEnum.admin.name())
+                        .requestMatchers("bugs/reported-bugs", "/apply/view-applications").hasRole(RoleEnum.admin.name())
                         .anyRequest().authenticated()
 
         ).formLogin(

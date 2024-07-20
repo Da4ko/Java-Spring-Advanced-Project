@@ -67,7 +67,15 @@
                         <a class="nav-link" href="/about-us" th:text="#{navbar.aboutUs}">About Us | </a>
                     </li>
                     <li class="nav-item active" sec:authorize="hasRole('admin')">
-                        <a class="nav-link" href="/bugs/reported-bugs" th:text="#{navbar.bugs}">Bugs</a>
+                        <a class="nav-link" href="/bugs/reported-bugs" th:text="#{navbar.bugs}">Bugs |</a>
+                    </li>
+    <div sec:authorize="isAuthenticated()">
+                    <li class="nav-item active"  sec:authorize="!hasRole('admin')">
+                        <a  class="nav-link" href="/apply/make-application" th:text="#{navbar.apply}">Apply for admin | </a>
+                    </li>
+    </div>
+                    <li class="nav-item active" sec:authorize="hasRole('admin')">
+                        <a class="nav-link" href="/apply/view-applications" th:text="#{navbar.applications}">Admin applications </a>
                     </li>
                 </ul>
             </div>

@@ -3,6 +3,7 @@ package com.example.java_spring_advanced_project.model.dto.Bugs;
 import com.example.java_spring_advanced_project.model.entity.Bug;
 
 public class BugDto {
+
     private String id;
     private String reportedBy;
     private String description;

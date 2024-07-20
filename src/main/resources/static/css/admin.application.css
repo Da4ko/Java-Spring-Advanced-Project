@@ -1,0 +1,111 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url(https://car-images.bauersecure.com/wp-images/3109/best_performance_exec_090.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-size: x-large;
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    font-size: x-large;
+    height: 20vh;
+}
+
+main{
+    height: 75vh;
+
+}
+
+footer {
+    color: white;
+    margin-left: 45%;
+    height: 5vh;
+}
+h2{
+    color: black;
+}
+/* Brown-beige theme */
+.brown-beige-theme {
+    background-color: #00308F; /* Beige */
+    color: black    ; /* Brown */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    max-width: 35vw;
+    margin: auto;
+}
+
+/* Split halves */
+.split {
+    display: flex;
+    overflow-x: auto;
+}
+
+.split div {
+    flex: 1;
+    padding: 10px;
+}
+
+/* Car card styling */
+.car-card {
+    background-color: #7CB9E8; /* Light beige */
+    border: 1px solid #0066b2; /* Brown */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 25vw;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+/* Background color for user's cars */
+.user-car {
+    width: 30vw;
+    background-color: #7CB9E8; /* Moccasin */
+}
+
+
+.car-image {
+    width: 100%;
+    height: auto;
+}
+
+@media (min-width: 992px) {
+
+    #back-to-home{
+        display: none;
+    }
+}
+
+.user-cars,
+.other-user-cars {
+    max-height: 400px; /* Set maximum height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
+}
+
+#delete1{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5%;
+    margin-top: 1%;
+}
+#delete2{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5%;
+    margin-top: 1%;
+}
+
+#delete3{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5%;
+    margin-top: 1%;
+}
+#accept-btn{
+    margin-right: 5%;
+}
+
