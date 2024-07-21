@@ -57,8 +57,10 @@ public class UserControllerTestIT {
     @Test
     @WithMockUser(username = "testUser", roles = {"USER"})
     public void testLoginGet() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/login"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/login")
+                        .with(SecurityMockMvcRequestPostProcessors.csrf())) // Add CSRF token here
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("login"));
     }
+
 }

@@ -17,6 +17,8 @@ public class BugDto {
         this.description = bug.getDescription();
     }
 
+
+
     public String getId() {
         return id;
     }

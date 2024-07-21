@@ -25,15 +25,6 @@ public class HomeController {
         this.messageSource = messageSource;
     }
 
-  /*  @GetMapping("/")
-    public String index(Locale locale, Model model) {
-        model.addAttribute("welcomeMessage", messageSource.getMessage("home.not.logged.in.welcome", null, locale));
-        model.addAttribute("description", messageSource.getMessage("home.not.logged.in.description", null, locale));
-        model.addAttribute("login", messageSource.getMessage("home.not.logged.in.login", null, locale));
-        model.addAttribute("register", messageSource.getMessage("home.not.logged.in.register", null, locale));
-        model.addAttribute("aboutUs", messageSource.getMessage("home.not.logged.in.about.us", null, locale));
-        return "home_not_logged_in";
-    }*/
     @GetMapping("/")
     public String index(){
         return "home_not_logged_in";
