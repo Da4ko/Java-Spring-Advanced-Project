@@ -6,8 +6,8 @@ import jakarta.validation.constraints.Size;
 public class ApplicationSubmitBindingModel {
     private String description;
 
-    @NotNull(message = "{bug.report.description.notNull}")
-    @Size(min = 2, max = 500, message = "{bug.report.description.size}")
+    @NotNull(message = "{applicationSubmitBindingModel.description.NotNull}")
+    @Size(min = 2, max = 500, message = "{applicationSubmitBindingModel.description.Size}")
     public String getDescription() {
         return description;
     }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bugs</title>
+    <title th:text="#{adminApplication.title}">Bugs</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/admin.application.css">
 </head>
@@ -11,30 +11,39 @@
 <header th:replace="fragments/commons::head"></header>
 <main>
     <div class="brown-beige-theme">
-        <div class = "row-menu">
-            <h2>Admin applications</h2>
-            <button id = "back-to-home" type="submit" class="btn btn-success  mb-3">Return to home</button>
+        <div class="row-menu">
+            <h2 th:text="#{adminApplication.adminApplications}">Admin applications</h2>
+            <button id="back-to-home" type="submit" class="btn btn-success mb-3" th:text="#{adminApplication.returnToHome}">Return to home</button>
         </div>
-        <img class = "logo-img"src="" alt="">
+        <img class="logo-img" src="" alt="">
         <div class="split">
-
-
-            <div id = "bugs" class="user-cars">
-                <div id = "bug1"class="car-card user-car">
-                    <p>Applicant: <label>User123</label></p>
-
-                    <p>Application text: <label>When users attempt to upload images to their profiles, the system intermittently fails to process the files, resulting in error messages. This issue persists across multiple browsers and devices, impeding the functionality of the profile customization feature.</label></p>
-
-                    <button id="accept-btn" type="submit" class="btn btn-success  mb-3">Accept</button>
-                    <button id="reject-btn" type="submit" class="btn btn-danger mb-3">Reject</button>
+            <div id="bugs" class="user-cars">
+                <div th:each="a : ${homeAdminApplicationDto.applicationsToBeVisualised}" class="car-card user-car">
+                    <div class="padding">
+                        <p class="one-line" th:text="#{adminApplication.applicant}">Applicant: </p>
+                        <span class="one-line" th:text="${a.applicant}">User123</span>
+                        <br/>
+                        <p></p>
+                        <div class="bug-description">
+                            <p class="bug-label" th:text="#{adminApplication.applicationText}">Application Text: </p>
+                            <div class="description-text" th:text="${a.description}">Description goes here</div>
+                        </div>
+                        <p></p>
+                        <form action="" th:method="delete" th:action="@{/apply/accept/{uuid}(uuid=${a.id})}">
+                            <button id="accept-btn" type="submit" class="btn btn-success mb-3" th:text="#{adminApplication.accept}">Accept</button>
+                        </form>
+                        <form action="" th:method="delete" th:action="@{/apply/{uuid}(uuid=${a.id})}">
+                            <button id="reject-btn" type="submit" class="btn btn-danger mb-3" th:text="#{adminApplication.reject}">Reject</button>
+                        </form>
+                        <hr/>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
 </main>
 <footer>
-    <h6 class="footer-text"> All rights reserved™</h6>
+    <h6 class="footer-text" th:text="#{adminApplication.allRightsReserved}">All rights reserved™</h6>
 </footer>
 </body>
 </html>

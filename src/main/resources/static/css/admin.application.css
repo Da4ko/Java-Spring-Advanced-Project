@@ -7,6 +7,36 @@ body{
     height: 100vh;
     width: 100vw;
 }
+.one-line {
+    display: inline; /* Ensures each pair stays on the same line */
+
+}
+.bug-description {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin-bottom: 10px; /* Optional: Adds space between bug descriptions */
+}
+
+.bug-description p.bug-label {
+
+    margin-right: 10px;
+    display: inline;
+}
+
+.bug-description .description-text {
+    /* Ensures text stays on the same line */
+    max-width: calc(100% - 80px); /* Adjust to leave space for label and spacing */
+    white-space: normal; /* Allows text to wrap */
+    line-height: 1.5;
+    display: inline;/* Optional: Adjusts line height for readability */
+
+    display: block;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.bug-description .description-text span {
+    display: inline-block; /* Ensures each chunk of text remains inline */
+}
 
 header{
     font-size: x-large;
@@ -45,14 +75,14 @@ h2{
 
 .split div {
     flex: 1;
-    padding: 10px;
+
 }
 
 /* Car card styling */
 .car-card {
     background-color: #7CB9E8; /* Light beige */
     border: 1px solid #0066b2; /* Brown */
-    padding: 10px;
+/*    padding: 10px;*/
     margin-bottom: 10px;
     border-radius: 5px;
     max-width: 25vw;
@@ -86,26 +116,20 @@ h2{
     overflow-x: hidden; /* Hide horizontal scrollbar if not needed */
 }
 
-#delete1{
-    border-color: black;
-    border-width: 2px;
-    border-radius: 5%;
-    margin-top: 1%;
-}
-#delete2{
-    border-color: black;
-    border-width: 2px;
-    border-radius: 5%;
-    margin-top: 1%;
-}
-
-#delete3{
-    border-color: black;
-    border-width: 2px;
-    border-radius: 5%;
-    margin-top: 1%;
-}
 #accept-btn{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5%;
+    margin-top: 1%;
     margin-right: 5%;
 }
-
+#reject-btn{
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5%;
+    margin-top: 1%;
+    margin-right: 5%;
+}
+.padding{
+    padding: 10px;
+}

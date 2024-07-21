@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="#{thxapplication.title}">Accepted Application</title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/thank-you-for-the-report.css">
+</head>
+<body>
+<header th:replace="fragments/commons::head"></header>
+<main>
+  <h1 th:text="#{thxapplication.thankYouMessage}">Thank you for the application! Our team is going to view it within a maximum of 3 working days, and if we accept you, you will be contacted!</h1>
+  <br>
+  <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" th:text="#{thxapplication.returnToHome}">Return to home</a>
+</main>
+<footer>
+  <footer th:replace="fragments/commons::footer"></footer>
+</footer>
+</body>
+</html>

@@ -20,7 +20,9 @@
         <img class="logo-img" src="" alt="">
         <div class="split">
             <div id="bugs" class="user-cars">
+
                 <div th:each="bug : ${homeBugsDto.bugsToBeVisualised}" class="car-card user-car">
+
                     <p class="one-line" th:text="#{bugs.reported.by}">Reported By: </p>
                     <span class="one-line" th:text="${bug.reportedBy}">User123</span>
                     <br/>
@@ -34,7 +36,10 @@
                         <button id="delete" type="submit" class="btn btn-danger mb-3" th:text="#{bugs.solve}">Bug Solved!</button>
                     </form>
                     <hr/>
+
                 </div>
+
+
             </div>
         </div>
     </div>

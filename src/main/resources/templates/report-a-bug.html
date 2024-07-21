@@ -13,6 +13,7 @@
 <header th:replace="fragments/commons::head"></header>
 <main>
     <div class="form">
+
         <form th:object="${reportABugBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/bugs/add-report}">
             <div id="form-group-all" class="form-group">
                 <div id="form-report" class="form-group">
@@ -28,6 +29,7 @@
                 </div>
             </div>
         </form>
+
     </div>
 </main>
 <footer>

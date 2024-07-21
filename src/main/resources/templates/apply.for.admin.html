@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title >Make application</title>
+  <title th:text="#{apply.title}">Make application</title>
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/report-a-bug.css">
 </head>
@@ -13,25 +13,27 @@
 <header th:replace="fragments/commons::head"></header>
 <main>
   <div class="form">
-    <form  class="mx-auto w-25 bg-blur rounded"  >
+
+    <form th:object="${applicationSubmitBindingModel}" class="mx-auto w-25 bg-blur rounded" th:method="post" th:action="@{/apply/make-application}">
       <div id="form-group-all" class="form-group">
         <div id="form-report" class="form-group">
           <div class="label-holder text-white textCol d-flex justify-content-center">
-            <label id="label-text2" class="h4 mb-2">Make application</label>
+            <label id="label-text2" class="h4 mb-2" th:text="#{apply.makeApplication}">Make application</label>
           </div>
-          <textarea  type="text" class="form-control" id="description" name="description" rows="12" cols="80" placeholder="Please include your email or phone number in the application so we can connect you in case you are approved (it will take no more than 3 working days) "></textarea>
-          <small class="text-danger">application error message</small>
+          <textarea th:field="*{description}" th:errorclass="bg-danger"  type="text" class="form-control" id="description" name="description" rows="12" cols="80" th:placeholder="#{apply.description.placeholder}"></textarea>
+          <small th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger">application error message</small>
           <br>
-          <button id="sbm-btn-btn" type="submit" class="btn btn-warning mb-3" >Submit application</button>
+          <button id="sbm-btn-btn" type="submit" class="btn btn-warning mb-3" th:text="#{apply.submitApplication}">Submit application</button>
           <br>
-          <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" >Return to home</a>
+          <a id="back-to-home" type="submit" class="btn btn-success mb-3" href="/home" th:text="#{apply.returnToHome}">Return to home</a>
         </div>
       </div>
     </form>
+
   </div>
 </main>
 <footer>
-  <h6 class="footer-text">All rights reserved™</h6>
+  <h6 class="footer-text" th:text="#{apply.allRightsReserved}">All rights reserved™</h6>
 </footer>
 </body>
 </html>
