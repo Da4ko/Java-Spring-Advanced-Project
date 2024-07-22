@@ -14,6 +14,13 @@ public class Currency extends BaseEntity {
 
     public Currency() {
     }
+
+    public Currency(CurrencyName currency, String originCountry, double toEuro) {
+        this.currency = currency;
+        this.originCountry = originCountry;
+        this.toEuro = toEuro;
+    }
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     public CurrencyName getCurrency() {

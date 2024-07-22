@@ -80,24 +80,8 @@ public class AdminApplicationServiceImpl implements AdminApplicationService {
     public void deleteApplication(String uuid) {
         adminApplicationsRepository.deleteById(uuid);
     }
-//TODO
- /*   @Override
-    public void giveAdmin(String uuid) {
-        Optional<AdminApplication> adminApplication = adminApplicationsRepository.findById(uuid);
-        UserEntity user = adminApplication.get().getApplicant();
-        if(user.getRoles().size() == 2){
-            userRepository.save(user);
-        }else {
-            List<UserRoleEntity> roles = new ArrayList<>();
-            UserRoleEntity adminRole = userRoleRepository.findById(1L).orElseThrow(() -> new RuntimeException("Admin role not found"));
-            UserRoleEntity userRole = userRoleRepository.findById(2L).orElseThrow(() -> new RuntimeException("User role not found"));
-            roles.add(userRole);
-            roles.add(adminRole);
-            userRepository.save(user);
 
-            adminApplicationsRepository.deleteById(uuid);
-        }
-    }*/
+
 @Override
 public void giveAdmin(String uuid) {
     Optional<AdminApplication> adminApplicationOptional = adminApplicationsRepository.findById(uuid);
