@@ -3,6 +3,7 @@ package com.example.java_spring_advanced_project.config;
 import com.example.java_spring_advanced_project.model.entity.enums.RoleEnum;
 import com.example.java_spring_advanced_project.repository.UserRepository;
 import com.example.java_spring_advanced_project.service.impl.TuzarCarsUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfiguration {
+    @Autowired
+    private CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity)throws Exception{
@@ -26,7 +29,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/home", "/audi/audi-cars-home", "/bmw/bmw-cars-home"
                         , "/mercedes/mercedes-cars-home", "/porsche/porsche-cars-home"
                         ,"/audi/add-audi", "/bmw/add-bmw", "/porsche/add-porsche"
-                        , "/mercedes/add-mercedes", "/bugs/add-report", "/bugs//thank-you", "/apply/make-application").hasRole(RoleEnum.user.name())
+                        , "/mercedes/add-mercedes", "/bugs/add-report", "/bugs/thank-you", "/apply/make-application").hasRole(RoleEnum.user.name())
 
                         .requestMatchers("/error").permitAll()
 
@@ -39,7 +42,8 @@ public class SecurityConfiguration {
                             .usernameParameter("username")
                             .passwordParameter("password")
                             .defaultSuccessUrl("/home")
-                            .failureForwardUrl("/users/login-error");
+
+                            .failureHandler(customAuthenticationFailureHandler);
                 }
         ).logout(
                 logout -> {
