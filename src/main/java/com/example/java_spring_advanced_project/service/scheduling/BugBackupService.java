@@ -23,7 +23,7 @@ public class BugBackupService {
         this.bugRepository = bugRepository;
     }
 
-    @Scheduled(cron = "0 0 */8 * * ?")// Runs every 20 seconds
+    @Scheduled(cron = "0 0 */8 * * ?")// Runs every 8 hours
     public void performBackup() {
         List<Bug> bugs = bugRepository.findAll();
         createBackupDirectoryIfNotExists();
