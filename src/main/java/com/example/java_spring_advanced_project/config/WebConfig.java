@@ -18,13 +18,14 @@ public class WebConfig {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         messageSource.setDefaultEncoding("UTF-8");
+
         return messageSource;
     }
 
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.GERMAN); // Set default locale
+        localeResolver.setDefaultLocale(Locale.FRENCH); // Set default locale
         return localeResolver;
     }
 }

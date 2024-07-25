@@ -5,6 +5,8 @@ import com.example.java_spring_advanced_project.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,8 +28,16 @@ public class HomeController {
     }
 
     @GetMapping("/")
-    public String index(){
-        return "home_not_logged_in";
+    public String index(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        boolean isAuthenticated = authentication != null && authentication.isAuthenticated() && !(authentication.getPrincipal() instanceof String && ((String) authentication.getPrincipal()).equals("anonymousUser"));
+
+        if (isAuthenticated) {
+            model.addAttribute("changeUsernameBindingModel", new ChangeUsernameBindingModel()); // Add the required model attribute
+            return "home_logged_in";
+        } else {
+            return "home_not_logged_in";
+        }
     }
 
     @GetMapping("/home")
