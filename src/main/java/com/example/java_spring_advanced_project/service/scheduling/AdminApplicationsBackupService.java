@@ -6,7 +6,6 @@ import com.example.java_spring_advanced_project.model.entity.AdminApplication;
 import com.example.java_spring_advanced_project.repository.AdminApplicationsRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
 import java.io.File;
