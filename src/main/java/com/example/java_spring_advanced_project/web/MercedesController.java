@@ -1,6 +1,6 @@
 package com.example.java_spring_advanced_project.web;
 
-import com.example.java_spring_advanced_project.model.binding.BmwAddBindingModel;
+
 import com.example.java_spring_advanced_project.model.binding.MercedesAddBindingModel;
 import com.example.java_spring_advanced_project.model.dto.HomeMercedesCarsDto;
 import com.example.java_spring_advanced_project.service.MercedesService;

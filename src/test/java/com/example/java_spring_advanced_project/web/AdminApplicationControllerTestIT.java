@@ -66,27 +66,7 @@ public class AdminApplicationControllerTestIT {
                 .andExpect(view().name("apply.for.admin"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("applicationSubmitBindingModel"));
     }
-    //todo
-  /*  @Test
-    @WithMockUser(username = "testUser")
-    public void testApplyConfirmValidationErrors() throws Exception {
-        // Create a model with validation errors
-        ApplicationSubmitBindingModel applicationSubmitBindingModel = new ApplicationSubmitBindingModel();
-        // Assuming description is required or has other validation constraints
-        applicationSubmitBindingModel.setDescription("Test description");
 
-        // Simulate validation errors
-        when(adminApplicationService.create(any(ApplicationSubmitBindingModel.class))).thenReturn(false);
-
-        // Perform the request with validation errors
-        mockMvc.perform(post("/make-application")
-                        .param("description", "Test description") // Include parameters as needed
-                        .flashAttr("applicationSubmitBindingModel", applicationSubmitBindingModel) // Include model attribute
-                        .flashAttr("org.springframework.validation.BindingResult.applicationSubmitBindingModel", mock(BindingResult.class)) // Include mock BindingResult
-                        ) // Include CSRF token if CSRF protection is enabled
-                .andExpect(status().isOk())
-                .andExpect(view().name("apply.for.admin"));
-    }*/
     @Test
     @WithMockUser(username = "testUser")
     public void testApplyConfirmSuccess() throws Exception {

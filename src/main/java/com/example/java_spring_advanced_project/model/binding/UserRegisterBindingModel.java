@@ -8,9 +8,10 @@ import jakarta.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
 
-    @UniqueUsername(message = "This username has already been taken")
+    @UniqueUsername(message = "{unique.username.message}")
     private String username;
-    @UniqueEmail(message = "You cannot create two accounts with one email")
+
+    @UniqueEmail(message = "{unique.email.message}")
     private String email;
     private String password;
     private String confirmPassword;

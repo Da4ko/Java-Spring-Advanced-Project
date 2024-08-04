@@ -13,13 +13,13 @@ public class UniqueUsernameValidator implements ConstraintValidator<UniqueUserna
 
     @Override
     public void initialize(UniqueUsername constraintAnnotation) {
-        // You can add any initialization code here if needed
+
     }
 
     @Override
     public boolean isValid(String username, ConstraintValidatorContext context) {
         if (userRepository == null) {
-            return true;  // UserRepository is not available, skip validation
+            return true;
         }
         return !userRepository.existsByUsername(username);
     }

@@ -25,7 +25,7 @@ public class WebConfig {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.ENGLISH); // Set default locale
+        localeResolver.setDefaultLocale(Locale.FRENCH); // Set default locale
         return localeResolver;
     }
 }

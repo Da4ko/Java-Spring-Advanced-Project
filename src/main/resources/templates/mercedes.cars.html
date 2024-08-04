@@ -27,7 +27,7 @@
             <div class="your-cars">
                 <h3 th:text="#{mercedes.yourCars}">Your Cars</h3>
                 <div class="user-cars">
-                    <!-- Example car offers -->
+
                     <div th:each="o : ${homeMercedesCarsDto.getMyMercedesCars()}" th:object="${o}" class="car-card user-car">
                         <p><span th:text="#{mercedes.model}">Model</span>: <label th:text="*{mercedesModel}">A8</label></p>
                         <p><span th:text="#{mercedes.horsepower}">Horsepower</span>: <label th:text="*{horsePower}">680</label></p>
@@ -46,13 +46,13 @@
                             <button id="delete" type="submit" class="btn btn-danger mb-3" th:text="#{mercedes.delete}">Delete</button>
                         </form>
                     </div>
-                    <!-- Add more car cards here -->
+
                 </div>
             </div>
             <div class="other-cars">
                 <h3 th:text="#{mercedes.otherCars}">Other Users' Cars</h3>
                 <div class="other-user-cars">
-                    <!-- Example car offers -->
+
                     <div th:each="o : ${homeMercedesCarsDto.getOthersMercedesCars()}" th:object="${o}" class="car-card other-user-car">
 
                         <p><span th:text="#{mercedes.model}">Model</span>: <label th:text="*{mercedesModel}">A7</label></p>
@@ -74,7 +74,7 @@
                             <button id="delete1" type="submit" class="btn btn-danger mb-3" th:text="#{mercedes.delete}">Delete</button>
                         </form>
                     </div>
-                    <!-- Add more car cards here -->
+
                 </div>
             </div>
         </div>

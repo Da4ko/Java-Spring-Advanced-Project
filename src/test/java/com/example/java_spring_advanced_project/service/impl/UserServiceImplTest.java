@@ -6,7 +6,7 @@ import com.example.java_spring_advanced_project.model.entity.UserEntity;
 import com.example.java_spring_advanced_project.model.entity.UserRoleEntity;
 import com.example.java_spring_advanced_project.repository.UserRepository;
 import com.example.java_spring_advanced_project.repository.UserRoleRepository;
-import com.example.java_spring_advanced_project.service.UserService;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -55,7 +55,7 @@ public class UserServiceImplTest {
         // Create a UserRegisterBindingModel with sample data
         UserRegisterBindingModel bindingModel = new UserRegisterBindingModel();
         bindingModel.setUsername("adminUser");
-        bindingModel.setEmail("user@domain.admin");
+        bindingModel.setEmail("admin@admin");
         bindingModel.setPassword("password");
 
         // Call the register method of userService

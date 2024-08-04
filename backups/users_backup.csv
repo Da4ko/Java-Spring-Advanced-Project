@@ -1,13 +1,22 @@
 username,email,password,active
+    regg,reg@reg123,$2a$10$n9cZ0snDZvk.L9Jq8RwapOCyn0dDK5Ge2riqAcgA1rqy0cykEu.Ju,true
 ddd,123@123ddd,$2a$10$f/FmgxE56wg.cehOogo.O.BC1hoGeaHrmf3RlsKuS1e7tymi8sBaO,true
 Hog1,batman@1231hog,$2a$10$YkSFlXSXU1QC2TYlPoyxTuM/BQkeGPt8.X.YOxBnEGN6Fb0CyG95O,false
 Agopcho,Armeniq@pop.com,$2a$10$sWNiPbglMxkKWdxFaghuCOqLVCTCK2yc6CB3nz0S9VmZktb2/BPTi,true
+1111,123@12333,$2a$10$yLxqAeXcFw/swUz1NqRaxeZ7HJmyjUKIGU9laON4AoDETjns3lONW,true
+admin11,admin@admin,$2a$10$VBg5FMH.HqgqYbWq6aBEYO02H27hv4FDZpn1xu12qxN.6dxYTlKIm,true
+user,seafeqw@adsfasf,$2a$10$gNfkI0UJdQeBIcldBBKxQuA5Aorl3l1U.lKztgxXmaIgyLL0tk5vy,true
+testov,batman@1234556t23523151235,$2a$10$3gKFC0XY8NEhk7T65/IlgOb5Q4d3AlWVf6hTSJ/7URoq5m.VDNWrG,true
 Daniel_Kartalov2,dakabat@DAKABAT32,$2a$10$tW.PnyPwgaAQsDoyedNzY.dje2oddKVB.Ui4Q8wmB/WKtNi7mdcdC,true
+testtest,test@testete,$2a$10$IexzzyxzwYB8YX1hq74useO7MvxZ2xOfv4eIzyMzV9SL75sV8tCHe,false
 batdaka,dakabat@DAKABAT,$2a$10$xkyx9iJ2iC9OKeoKEee2zu0/Qu.4ca4L0Wk7VvOWcS/nAypYx14I6,true
 BorisDali,borisboris@boris.com,$2a$10$tcYCtU72URyFz8KAcKg9e.p9SkCvgQuKpjdlQ5ucvA3tCmkT51Uya,true
 plami3900,plami@plami3800,$2a$10$EAQnsiZ.kHXETVxcP6UVsuKDQ1XxS7fOIXvOQPhzsre9dE9h.pc1e,true
+4545,4545@4545,$2a$10$LOKSnCczKqQHLeA0nd4MQuOLP979YYd7jyTvpNxxZVR2.GYU1H.ou,false
 toBeAdmin2,arewe@arewe,$2a$10$JbxVFxEvJ0y29wVtFI929.Ev3Vw39Q3hTxeObXkItneFt0hGXn4Y.,true
+555,555@35,$2a$10$yxr5tEaNYX.bb3n/ummY0ONKMy9YGGpYrFg10/lkIjFFFx6uhkZVS,false
 nnn,nnn2@1,$2a$10$hhUSu0nro9upyzbTH3JWFOp4gjnoA8zyNnZtAQCTo/i5qh9Dv6Q1K,true
+DanielUser1,123@1232141,$2a$10$yqQ3xxYrkmyvBL1bRd6qWeVRJYFNwT2YHdcDPezFfwepBxOvfquKS,true
 da4kose,da4ko0@seshse.sd,$2a$10$zat4jm2BnjyK//7r5Shpi.z6G27UGqCa0okDJ9rBpJGbpI0xOdH7O,true
 Da4ko,da4ko06@gmail.com,$2a$10$6Lxt1TiAhvaFxoHdaZZV/OpjN1/m7f4.bPT6uCBCln1OnsA/PlBAq,true
 adolf,adolf@adolf.com,$2a$10$K.Y8ZpvcyiDWPCTvi6iUxeS4A4OB5p7xB.jfC76dVOFrd03SRI8sK,true
@@ -17,10 +26,13 @@ Hog2,hog2@hog,$2a$10$2gKTQL7vw0VLJB.xAXDNG.Km2sGZnIgJ3aQ15XwJr7nllcuSeI01S,false
 defaultAdmin,123@defaultAdmin.admin,$2a$10$fkQ5IZL6J3D4VyEsKJhxbOv0Po5OCFScn8JaWqg2DoVDVhxQOZ8FG,true
 chochko,batman@12332,$2a$10$wBZhUfollxAEdfijrcVbPeKBZCD2p6ZL7Gp7ntN91AwoZPBi3rpbW,true
 caca,cacacaca@cacacaca,$2a$10$2IiRoEk0lmJSx1.p8A9dl.Clu8BNlhxnj1yWss3Nfe0l3uL1Hvk0.,true
+eeee,eee@eee,$2a$10$lPhYYEvfGt6pqHCY8ohYhOYT.Gy3BvFOopcweCSapgKpAWiL4MzYa,true
 toBeAdmin,123@145,$2a$10$iOPvOn0RJLPbWTokr0fZWeMzYHzL1pgBS0zhogNtrBgDEzLw1D/7W,true
 fff,fff@fff,$2a$10$I2QEHD0X9LYj4zGiGu0kveF4JBKSE9.hEthI8RQqIE2KV.4OMizeu,false
 Adhi,123123@1231234.admin,$2a$10$H0CLRVgXbilc4RXDj1UgA.NnitcY/6/83I9SShz520nIM8z3/cwGO,true
 admin,123@1234.admin,$2a$10$ZKJSgSBQjZTlSai..CMyz.0QFQJ61Iy5OC3ozRBRGD7NG/WnnUcaq,true
+admin23,adminawe@com,$2a$10$c7QQyENc74EzduK4Cm7Qve6TIcEDn.n7JxrDNFskpwAJrBjY3eEbS,true
+334,daniel.bg@dir.bg111,$2a$10$RwbcMZC3dzT2JUAIfFc0QeKoh9CIdmizbf/3re/Pu6FCtruPozNIq,false
 BatTenkaXXS,BatTenka@BatTenka,$2a$10$pyo3rzoEQvUmyNM3htj9We7Sed8ROuwp6dOKxfD9EIegDxssbVeoa,true
 Daniel_Kartalov,123123@123123,$2a$10$0I88TM32w4.AfvIviGsYCuhxBTnumjep7TdqxMq16DUmUEUGtpgca,true
 Hog,hog@123,$2a$10$/i7KWnurWSYq7ESoes2vVe.kq8iXbeJASezbuw20LOW0iZp0gIpf.,false

@@ -2,7 +2,6 @@ package com.example.java_spring_advanced_project.web;
 
 
 import com.example.java_spring_advanced_project.model.binding.ReportABugBindingModel;
-import com.example.java_spring_advanced_project.model.dto.Bugs.BugDto;
 import com.example.java_spring_advanced_project.model.dto.HomeBugsDto;
 import com.example.java_spring_advanced_project.service.BugsService;
 import jakarta.validation.Valid;

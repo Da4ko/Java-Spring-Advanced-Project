@@ -15,13 +15,13 @@ public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, St
 
     @Override
     public void initialize(UniqueEmail constraintAnnotation) {
-        // You can add any initialization code here if needed
+
     }
 
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
         if (userRepository == null) {
-            return true;  // UserRepository is not available, skip validation
+            return true;
         }
         return !userRepository.existsByEmail(email);
     }

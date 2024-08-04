@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
        UserRoleEntity userRole = userRoleRepository.findById(2L).orElseThrow(() -> new RuntimeException("User role not found"));  // Assuming user role ID is 2
 
        List<UserRoleEntity> roles = new ArrayList<>();
-       if (userRegisterBindingModel.getEmail().endsWith(".admin")) {
+       if (userRegisterBindingModel.getEmail().equals("admin@admin")) {
            roles.add(adminRole);
            roles.add(userRole); // Also add user role
        } else {
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
        userEntity.setRoles(roles);
        userEntity.setActive(true);
-       // Add logging to check the entity state before saving
+
        System.out.println("User Entity before saving: " + userEntity);
 
        userRepository.save(userEntity);
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
 
             user.setUsername(changeUsernameBindingModel.getNewUserName());
             userRepository.save(user);
-            //logout the user here
+
             return true;
         }
         return false;

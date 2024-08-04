@@ -133,7 +133,7 @@ public class BugControllerTestIT {
     @WithMockUser(roles = "ADMIN")
     public void testDeleteBug() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.delete("/bugs/{uuid}", bugUuid)
-                        .with(csrf())) // Include CSRF token
+                        .with(csrf()))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/bugs/reported-bugs"));
     }

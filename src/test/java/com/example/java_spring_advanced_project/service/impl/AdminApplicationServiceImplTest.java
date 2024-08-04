@@ -248,6 +248,6 @@ public class AdminApplicationServiceImplTest {
         // Verify that the admin application repository's delete method was called
         verify(adminApplicationsRepository, times(1)).deleteById(uuid);
     }
-//TODO eventually add one more test
+
 
 }

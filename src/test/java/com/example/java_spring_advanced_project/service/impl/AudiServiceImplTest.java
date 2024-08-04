@@ -9,19 +9,19 @@ import com.example.java_spring_advanced_project.model.entity.enums.*;
 import com.example.java_spring_advanced_project.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -377,5 +377,5 @@ public class AudiServiceImplTest {
         assertEquals("Currency not found: Euro", thrown.getMessage());
     }
 
-    // Additional tests can be added here if necessary
+
 }

@@ -52,7 +52,7 @@ public class SecurityConfiguration {
                             .invalidateHttpSession(true);
                 }
         );
-        //TODO
+
         return httpSecurity.build();
     }
     @Bean
