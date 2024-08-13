@@ -127,22 +127,24 @@ footer {
     height: 25vh;
     width: 33vw;
     margin-left: 15vw;
+       font-size:x-small;
 }
 #div2{
     height: 25vh;
     width: 33vw;
-    
+    font-size:x-small;
     
 }
 #div3{
     height: 25vh;
     width: 33vw;
     margin-left: 15vw;
-
+    font-size:x-small;
 }
 #div4{
     height: 25vh;
     width: 33vw;
+    font-size:x-small;
 }
 .mobile-menu{
     margin-left: 3%;
